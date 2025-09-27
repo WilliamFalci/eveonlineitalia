@@ -6,7 +6,7 @@
                 <div v-for="category in categoryData" :key="category.id" :class="category.columnClass">
                     <div class="shop__category">
                         <div class="shop__category-thumb">
-                            <img :src="category.imgSrc" :alt="category.title" />
+                            <NuxtImg :src="category.imgSrc" :alt="category.title" />
                         </div>
                         <div class="shop__category-content">
                             <h4 class="title">

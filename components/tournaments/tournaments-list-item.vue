@@ -7,7 +7,7 @@
       <div class="tournament__list-content">
         <div class="tournament__list-thumb">
           <nuxt-link to="/tournament-details">
-            <img
+            <NuxtImg
               :src="item.thumb"
               alt="thumb"
             />

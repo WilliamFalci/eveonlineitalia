@@ -390,6 +390,10 @@
             padding: 5px 66px 11px 85px;
             clip-path: polygon(43px 0%, 100% 0%, calc(100% - 43px) 100%, 0% 100%);
             clip-path: polygon(calc(100% - 23px) 0, 100% 20px, calc(100% - 30px) 100%, 0 100%, 43px 0);
+            height: 70px !important;
+            font-size: 15px;
+            align-items: center;
+            display: flex;
         }
         &:hover {
             color: var(--tg-theme-primary);

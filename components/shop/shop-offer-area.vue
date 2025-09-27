@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-xl-7 align-self-end">
                     <div class="offer-thumb">
-                        <img src="/images/others/offer-thumb5-1.png" alt="img">
+                        <NuxtImg src="/images/others/offer-thumb5-1.png" alt="img">
                     </div>
                 </div>
             </div>

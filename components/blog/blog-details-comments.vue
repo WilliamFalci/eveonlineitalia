@@ -4,7 +4,7 @@
         <li>
             <div class="comments-box">
                 <div class="comments-avatar">
-                    <img src="/images/blog/comment01.png" alt="img">
+                    <NuxtImg src="/images/blog/comment01.png" alt="img">
                 </div>
                 <div class="comments-text">
                     <div class="avatar-name">
@@ -18,7 +18,7 @@
                 <li>
                     <div class="comments-box">
                         <div class="comments-avatar">
-                            <img src="/images/blog/comment02.png" alt="img">
+                            <NuxtImg src="/images/blog/comment02.png" alt="img">
                         </div>
                         <div class="comments-text">
                             <div class="avatar-name">
@@ -34,7 +34,7 @@
         <li>
             <div class="comments-box">
                 <div class="comments-avatar">
-                    <img src="/images/blog/comment03.png" alt="img">
+                    <NuxtImg src="/images/blog/comment03.png" alt="img">
                 </div>
                 <div class="comments-text">
                     <div class="avatar-name">

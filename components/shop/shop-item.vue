@@ -2,7 +2,7 @@
    <div class="shop__item">
       <div class="shop__item-thumb">
         <nuxt-link :to="`/shop-details/${item.id}`">
-          <img :src="item.img" alt="img"/>
+          <NuxtImg :src="item.img" alt="img"/>
         </nuxt-link>
         <nuxt-link to="#" class="wishlist-button">
           <i class="far fa-heart"></i>

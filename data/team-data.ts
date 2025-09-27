@@ -6,13 +6,13 @@ const team_data = [
     title:'TremalJack',
     subtitle:'Full-Stack Dev.'
   },
- /*  {
-    id:2,
-    img:'/images/team/team02.png',
-    title:'tanu mark',
-    subtitle:'Developer'
-  },
   {
+    id:2,
+    img:'/images/team/LogicalChaos.jpg',
+    title:'Logical Chaos',
+    subtitle:'Full-Stack Dev.'
+  },
+  /*{
     id:3,
     img:'/images/team/team03.png',
     title:'Thompson Scot',

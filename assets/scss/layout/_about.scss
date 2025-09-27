@@ -292,8 +292,8 @@
                 position: absolute;
                 left: -121px;
                 right: 0px;
-                bottom: 73px;
-                /* max-width: 382px; */
+                bottom: 0px;
+                max-width: 382px;
                 margin: 0 auto;
                 @media #{$lg} {
                     max-width: 315px;

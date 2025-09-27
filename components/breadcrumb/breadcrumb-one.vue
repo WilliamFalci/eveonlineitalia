@@ -22,7 +22,7 @@
             class="col-xl-6 col-lg-5 position-relative d-none d-lg-block"
           >
             <div class="breadcrumb__img">
-              <img :src="brd_img" alt="img" />
+              <NuxtImg :src="brd_img" alt="img" />
             </div>
           </div>
         </div>

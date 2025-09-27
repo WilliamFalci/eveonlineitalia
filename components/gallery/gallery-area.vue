@@ -24,7 +24,7 @@
                           @mouseenter="handleMouseEnter"
                           @mouseleave="handleMouseLeave"
                         >
-                          <img :src="item.img" alt="img" />
+                          <NuxtImg :src="item.img" alt="img" />
                         </a>
                       </div>
                       <div class="gallery__content">

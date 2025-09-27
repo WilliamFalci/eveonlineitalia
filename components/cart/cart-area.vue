@@ -19,7 +19,7 @@
                             <tr>
                                 <td class="product__thumb">
                                     <nuxt-link href="/shop-details">
-                                        <img src="/images/products/product01.jpg" alt="prd-img" />
+                                        <NuxtImg src="/images/products/product01.jpg" alt="prd-img" />
                                     </nuxt-link>
                                 </td>
                                 <td class="product__name">

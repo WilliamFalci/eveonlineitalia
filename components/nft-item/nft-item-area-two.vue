@@ -14,7 +14,7 @@
                     <div class="nft-card">
                         <div class="nft-card-thumb">
                             <NuxtLink href="/shop">
-                                <img :src="item.imgSrc" alt="NFT" />
+                                <NuxtImg :src="item.imgSrc" alt="NFT" />
                             </NuxtLink>
                         </div>
                         <div class="nft-card-content">
@@ -24,10 +24,10 @@
                             </h4>
                             <div class="btn-wrap">
                                 <a href="#">
-                                    <img src="/images/icons/play-slore-btn.png" alt="Play Store" />
+                                    <NuxtImg src="/images/icons/play-slore-btn.png" alt="Play Store" />
                                 </a>
                                 <a href="#">
-                                    <img src="/images/icons/apple-slore-btn.png" alt="Apple Store" />
+                                    <NuxtImg src="/images/icons/apple-slore-btn.png" alt="Apple Store" />
                                 </a>
                             </div>
                         </div>

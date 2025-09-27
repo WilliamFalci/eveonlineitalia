@@ -14,7 +14,7 @@
           <SwiperSlide v-for="(image, i) in project_images" :key="i">
             <div class="project__item">
               <a @click.prevent="handleShowImage(i)" class="popup-image pointer">
-                <img :src="image" alt="img" />
+                <NuxtImg :src="image" alt="img" />
               </a>
             </div>
           </SwiperSlide>

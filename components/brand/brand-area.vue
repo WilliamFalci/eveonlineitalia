@@ -20,7 +20,7 @@
             }"
           >
             <nuxt-link to="#" class="brand__link">
-              <img :src="b" alt="brand" />
+              <NuxtImg :src="b" alt="brand" />
             </nuxt-link>
           </div>
         </SwiperSlide>

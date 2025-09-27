@@ -6,7 +6,7 @@
                     <div class="section__title text-center mb-60 title-shape-none">
                         <span class="sub-title2">Professional Esports Team</span>
                         <h3 class="title2">Pro Skilled <span class="text-theme d-inline-block position-relative">
-                            <img class="section-line" src="/images/others/section-line.png" alt="img">
+                            <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img">
                             Gamers</span>
                         </h3>
                     </div>
@@ -17,7 +17,7 @@
                     <div class="team__item2">
                         <div class="team__thumb">
                             <nuxt-link href="/team-details">
-                                <img :src="item.imgSrc" alt="img">
+                                <NuxtImg :src="item.imgSrc" alt="img">
                             </nuxt-link>
                         </div>
                         <div class="team__content">
@@ -73,7 +73,7 @@ const teamData = [
                             {{ style_2 ? 'MEET OUR ELITE TEAM' : 'Pro Skilled ' }}
                             <template v-if="!style_2">
                                 <span class="text-theme d-inline-block position-relative">
-                                    <img class="section-line" src="/images/others/section-line.png" alt="img" />
+                                    <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img" />
                                     Gamers
                                 </span>
                             </template>
@@ -87,7 +87,7 @@ const teamData = [
                     <div class="team__item2">
                         <div class="team__thumb">
                             <NuxtLink href="/team-details">
-                                <img :src="team.imgSrc" alt="img" />
+                                <NuxtImg :src="team.imgSrc" alt="img" />
                             </NuxtLink>
                         </div>
                         <div class="team__content">

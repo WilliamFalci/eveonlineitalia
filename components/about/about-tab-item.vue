@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-xl-5 col-lg-10">
         <div class="about__img">
-          <img :src="img" alt="img" />
+          <NuxtImg :src="img" alt="img" />
         </div>
       </div>
       <div class="col-xl-7 col-lg-10">
@@ -26,13 +26,13 @@
             <div class="about__content-list">
               <ul class="list-wrap">
                 <li>
-                  <img src="/images/icons/features_icon01.png" alt="img" /> Chichi Dragon Ball
+                  <NuxtImg src="/images/icons/features_icon01.png" alt="img" /> Chichi Dragon Ball
                 </li>
                 <li>
-                  <img src="/images/icons/features_icon02.png" alt="img" /> Space Babe Night
+                  <NuxtImg src="/images/icons/features_icon02.png" alt="img" /> Space Babe Night
                 </li>
                 <li>
-                  <img src="/images/icons/features_icon03.png" alt="img" /> Dragon Ball
+                  <NuxtImg src="/images/icons/features_icon03.png" alt="img" /> Dragon Ball
                 </li>
               </ul>
             </div>

@@ -24,7 +24,7 @@
           <li v-for="l in item.list_items" :key="l.id">
             <div class="tournament__box-list-item">
               <div class="tournament__player-thumb">
-                <img :src="l.img" alt="img" />
+                <NuxtImg :src="l.img" alt="img" />
               </div>
               <h6 class="tournament__player-name">{{l.name}}</h6>
               <span class="tournament__player-price">

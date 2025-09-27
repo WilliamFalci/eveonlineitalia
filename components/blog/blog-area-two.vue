@@ -11,7 +11,7 @@
                         <h3 class="title2">
                             Latest
                             <span class="text-theme d-inline-block position-relative">
-                                <img class="section-line" src="/images/others/section-line.png" alt="img" />
+                                <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img" />
                                 Blog Posts
                             </span>
                         </h3>
@@ -28,7 +28,7 @@
                 <div v-for="blog in blogData" :key="blog.id" class="col-lg-6">
                     <div class="blog-card">
                         <div class="blog-card-img">
-                            <img :src="blog.imgSrc" alt="Blog Thumbnail" />
+                            <NuxtImg :src="blog.imgSrc" alt="Blog Thumbnail" />
                         </div>
                         <div class="blog-card-content">
                             <div class="blog-post-meta">

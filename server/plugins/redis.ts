@@ -53,8 +53,40 @@ export default defineNitroPlugin(() => {
     }
 
     eveOnlineNewsQueue.process(eveOnlineNewsQueueProcessor)
-    eveOnlineNewsQueue.on("completed", (job) => {
+    eveOnlineNewsQueue.on("completed", async (job) => {
         console.log(`Processing job: ${job.id} - Completed`);
+
+        if (job.data.guid) {
+            const webhookUrl = "https://discord.com/api/webhooks/1421525453180502078/0Vg57RHv0Px0MYUqlLihR8uRnoyJrhri1HDvcCiHyDLnN0153Dax9e7XSknuKUiG38gw";
+    
+            let { data: eveonline_news, error } = await serverSupabase
+                .from('eveonline_news')
+                .select('*')
+                .eq('guid', job.data.guid)
+    
+            if (eveonline_news && eveonline_news![0]){
+                const payload = {
+                    embeds: [
+                        {
+                            title: eveonline_news[0].title_ita,
+                            url: `https://eveonlineitalia.it/blog/${job.data.guid}`,
+                            description: "Leggi l'articolo sul sito",
+                            color: 0x5865F2, // blu discord
+                            author: {
+                                name: eveonline_news[0].author,
+                            },
+                            timestamp: new Date().toISOString()
+                        }
+                    ]
+                };
+        
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+            }
+        }
     })
     eveOnlineNewsQueue.on("failed", async (job) => {
         if (job.failedReason === 'job stalled more than allowable limit') {

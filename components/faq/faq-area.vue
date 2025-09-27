@@ -55,7 +55,7 @@
               :key="i"
               :class="`services__images-item ${activeIndex === i ? 'active' : ''}`"
             >
-              <img :src="s" alt="img" />
+              <NuxtImg :src="s" alt="img" />
               <nuxt-link to="/service-details" class="services__link">
                 <i class="flaticon-next"></i>
               </nuxt-link>

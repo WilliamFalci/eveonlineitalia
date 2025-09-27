@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="trendingNft__title">
-                        <h2 class="title">top Trending <img src="/images/icons/fire.png" width="35" alt="icon"/></h2>
+                        <h2 class="title">top Trending <NuxtImg src="/images/icons/fire.png" width="35" alt="icon"/></h2>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -24,7 +24,7 @@
                       <div class="trendingNft__item-avatar">
                           <div class="image">
                               <nuxt-link to="/shop-details">
-                                <img :src="item.creator" alt="img"/>
+                                <NuxtImg :src="item.creator" alt="img"/>
                               </nuxt-link>
                           </div>
                           <div class="info">
@@ -40,7 +40,7 @@
                   </div>
                   <div class="trendingNft__item-image">
                       <nuxt-link to="/shop-details">
-                        <img :src="item.img" alt="img" />
+                        <NuxtImg :src="item.img" alt="img" />
                       </nuxt-link>
                   </div>
                   <div class="trendingNft__item-bottom">

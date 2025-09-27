@@ -22,7 +22,7 @@
             <div class="team__item">
               <div class="team__thumb">
                 <nuxt-link to="/team-details">
-                  <img :src="t.img" alt="img" />
+                  <NuxtImg :src="t.img" alt="img" />
                 </nuxt-link>
               </div>
               <div class="team__content">

@@ -18,7 +18,7 @@
                 </blockquote>
                 <p>Axcepteur sint occaecat atat non proident, sunt in culpa qui officia deserunt mollit anim id est labor umLor em ipsum dolor amet, consteur adiscing Duis elentum solliciin is yaugue euismods Nulla ullaorper. Ipsum is simply dummy text of  printing and typeetting industry. Lorem Ipsum has been the industries standsaard sipiscing Duis elementum.</p>
                 <div class="tournament__details-video position-relative">
-                    <img src="/images/blog/blog_post03.jpg" alt="img"/>
+                    <NuxtImg src="/images/blog/blog_post03.jpg" alt="img"/>
                     <a class="popup-video pointer" @click="playVideo('ssrNcwxALS4')">
                       <i class="flaticon-play"></i>
                     </a>
@@ -85,7 +85,7 @@
                     <h4 class="shop__widget-title">ADVERTISEMENT</h4>
                     <div class="shop__widget-inner">
                       <div class="tournament__advertisement">
-                          <nuxt-link to="#"><img src="/images/others/tournament_ad.jpg" alt="img" /></nuxt-link>
+                          <nuxt-link to="#"><NuxtImg src="/images/others/tournament_ad.jpg" alt="img" /></nuxt-link>
                       </div>
                     </div>
                 </div>

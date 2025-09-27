@@ -11,15 +11,15 @@
                         <i>gam<b>ing</b></i>
                     </h2>
                     <div class="about__content-circle">
-                        <img src="/images/icons/circle.svg" alt="img"/>
+                        <NuxtImg src="/images/icons/circle.svg" alt="img"/>
                         <svg-circle/>
                     </div>
                 </div>
             </div>
             <div class="col-xl-8">
                 <div class="about__three-images">
-                    <img src="/images/others/mask_img01.jpg" alt="img" class="left"/>
-                    <img src="/images/others/mask_img02.jpg" alt="img" class="right"/>
+                    <NuxtImg src="/images/others/mask_img01.jpg" alt="img" class="left"/>
+                    <NuxtImg src="/images/others/mask_img02.jpg" alt="img" class="right"/>
                     <div class="about__dots">
                         <svg-about-dots/>
                     </div>

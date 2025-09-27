@@ -12,7 +12,7 @@
                 <swiper-slide v-for="(item) in testimonialData" :key="item.id">
                     <div class="testimonial__item">
                         <div class="testimonial__thumb">
-                            <img :src="item.thumb" alt="img">
+                            <NuxtImg :src="item.thumb" alt="img">
                         </div>
                         <div class="testimonial__content">
                             <p class="content">{{ item.content }}</p>

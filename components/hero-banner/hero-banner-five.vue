@@ -1,16 +1,16 @@
 <template>
     <section class="banner__area banner__area-four">
         <div class="banner__bg tg-jarallax">
-            <img src="/images/slider/banner_bg5.png" alt="img">
+            <NuxtImg src="/images/slider/banner_bg5.png" alt="img">
         </div>
         <div class="banner__bg-shape">
-            <img src="/images/slider/banner_bg_shape5-1.png" alt="img">
+            <NuxtImg src="/images/slider/banner_bg_shape5-1.png" alt="img">
         </div>
         <div class="container custom-container4">
             <div class="row gy-5 align-items-center flex-row-reverse">
                 <div class="col-xl-6">
                     <div class="slider__img5">
-                        <img src="/images/slider/slider_img05.png" data-magnetic="" alt="img">
+                        <NuxtImg src="/images/slider/slider_img05.png" data-magnetic="" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-6">

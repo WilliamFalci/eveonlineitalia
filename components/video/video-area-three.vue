@@ -18,20 +18,14 @@
                             <swiper-slide v-for="(item) in videoItemData" :key="item.id">
                                 <div class="video__item2">
                                     <div class="video__thumb">
-                                        <img :src="item.imgSrc" alt="img">
+                                        <NuxtImg :src="item.imgSrc" alt="img" />
                                         <a @click="playVideo(item.videoId)" class="popup-video video-play-btn pointer">
                                             <svg-video-icon />
                                         </a>
                                     </div>
                                     <a :href="`https://youtu.be/${item.videoId}`" target="_blank" class="video-card-title">
                                         <span class="icon"><i class="fas fa-link"></i></span>
-                                        <span class="video-card-title-shape video-card-title-shape2">
-                                            <img src="/images/gallery/video3-card-title-shape2.png" alt="img">
-                                        </span>
                                         <span class="title">
-                                            <span class="video-card-title-shape video-card-title-shape1">
-                                                <img src="/images/gallery/video3-card-title-shape1.png" alt="img">
-                                            </span>
                                             {{ item.cardTitle }}
                                         </span>
                                     </a>

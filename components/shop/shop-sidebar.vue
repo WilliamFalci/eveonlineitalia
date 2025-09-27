@@ -39,7 +39,7 @@
             <div v-for="item in related__products" :key="item.id" class="related__products-item">
                 <div class="related__products-thumb">
                     <nuxt-link :to="`/shop-details/${item.id}`">
-                        <img :src="item.img" alt="img"/>
+                        <NuxtImg :src="item.img" alt="img"/>
                     </nuxt-link>
                 </div>
                 <div class="related__products-content">

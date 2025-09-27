@@ -25,8 +25,8 @@
                 </section>
                 <div class="about__content-bottom justify-content-center">
                      <div class="about__funFact-images m-auto" style="margin-top:60px!important;">
-                        <img src="/images/others/fun_fact_shape.png" alt="background" class="bg-shape">
-                        <img src="/images/others/fun_fact.png" class="main-img" alt="image">
+                        <NuxtImg src="/images/others/fun_fact_shape.png" alt="background" class="bg-shape" />
+                        <NuxtImg src="/images/others/fun_fact.png" class="main-img" alt="image" />
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
                 <div class="about__content-bottom justify-content-center">
                     <div class="about__content-circle">
-                        <img src="/images/icons/circle.svg" alt="img">
+                        <NuxtImg src="/images/icons/circle.svg" alt="img" />
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
                             <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
                             <text>

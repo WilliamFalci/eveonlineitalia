@@ -7,7 +7,7 @@
         </div>
         <div class="nav-logo">
           <nuxt-link to="/">
-            <img src="/images/logo/logo.png" alt="Logo" />
+            <NuxtImg src="/images/logo/logo.png" alt="Logo" />
           </nuxt-link>
         </div>
         <div class="tgmobile__search">

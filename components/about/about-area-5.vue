@@ -4,7 +4,7 @@
             <div class="row gy-5 flex-row-reverse justify-content-center align-items-center">
                 <div class="col-xl-6">
                     <div class="about__funFact-images4">
-                        <img class="main-img1" data-magnetic src="/images/others/about_img4-1.png" alt="img">
+                        <NuxtImg class="main-img1" data-magnetic src="/images/others/about_img4-1.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-6">

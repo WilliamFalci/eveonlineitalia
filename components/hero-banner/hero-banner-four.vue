@@ -1,7 +1,7 @@
 <template>
     <section class="banner__area banner__area-three">
         <div class="banner__bg tg-jarallax">
-            <img src="/images/slider/banner_bg4.png" alt="img">
+            <NuxtImg src="/images/slider/banner_bg4.png" alt="img">
         </div>
         <div class="container">
             <div class="row gy-5 align-items-center">

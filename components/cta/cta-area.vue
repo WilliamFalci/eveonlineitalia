@@ -5,7 +5,7 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="col-xl-7">
                         <div class="cta-thumb">
-                            <img src="/images/others/cta-thumb.png" alt="img">
+                            <NuxtImg src="/images/others/cta-thumb.png" alt="img">
                         </div>
                     </div>
                     <div class="col-xl-5">

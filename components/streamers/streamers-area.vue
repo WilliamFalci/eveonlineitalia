@@ -14,7 +14,7 @@
                 <div class="streamers__item">
                     <div class="streamers__thumb">
                         <nuxt-link to="/team-details">
-                          <img :src="item.img" alt="img" />
+                          <NuxtImg :src="item.img" alt="img" />
                         </nuxt-link>
                     </div>
                     <div class="streamers__content">

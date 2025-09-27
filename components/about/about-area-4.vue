@@ -4,9 +4,9 @@
             <div class="row gy-5 justify-content-center align-items-center">
                 <div class="col-xl-6">
                     <div class="about__funFact-images3">
-                        <img class="main-img1" data-magnetic src="/images/others/about_img3-1.png" alt="background">
-                        <img class="main-img2" data-magnetic src="/images/others/about_img3-2.png" alt="image">
-                        <img class="main-img3" data-magnetic src="/images/others/about_img3-3.png" alt="image">
+                        <NuxtImg class="main-img1" data-magnetic src="/images/others/about_img3-1.png" alt="background">
+                        <NuxtImg class="main-img2" data-magnetic src="/images/others/about_img3-2.png" alt="image">
+                        <NuxtImg class="main-img3" data-magnetic src="/images/others/about_img3-3.png" alt="image">
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -14,7 +14,7 @@
                         <h6 class="sub-title2">More About My Self</h6>
                         <h3 class="title2">Original Esports
                             <br> <span class="text-theme d-inline-block position-relative"> Pro Player 
-                                <img class="section-line" src="/images/others/section-line.png" alt="img">
+                                <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img">
                             </span>
                         </h3>
                     </div>

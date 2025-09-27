@@ -7,7 +7,7 @@
                     <div class="section__title text-center mb-60 title-shape-none">
                         <span class="sub-title2">Upcoming Schedule</span>
                         <h3 class="title2">My STREAM <span class="text-theme d-inline-block position-relative">
-                            <img class="section-line" src="/images/others/section-line.png" alt="img">
+                            <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img">
                             TIMETABLE</span>
                         </h3>
                     </div>
@@ -19,7 +19,7 @@
                         <div class="upcoming-match__wrap">
                             <div class="upcoming-match__team team-left">
                                 <nuxt-link href="/team-details">
-                                    <img :src="item.leftTeamLogo" alt="img">
+                                    <NuxtImg :src="item.leftTeamLogo" alt="img">
                                 </nuxt-link>
                             </div>
                             <div class="upcoming-match__content">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="upcoming-match__team team-right">
                                 <nuxt-link href="/team-details">
-                                    <img :src="item.rightTeamLogo" alt="img">
+                                    <NuxtImg :src="item.rightTeamLogo" alt="img">
                                 </nuxt-link>
                             </div>
                         </div>

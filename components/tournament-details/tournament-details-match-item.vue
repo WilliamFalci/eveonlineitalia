@@ -2,7 +2,7 @@
   <div class="trending__matches-item">
     <div class="trending__matches-thumb">
       <nuxt-link to="#">
-        <img :src="item.thumb" alt="img" />
+        <NuxtImg :src="item.thumb" alt="img" />
       </nuxt-link>
     </div>
     <div class="trending__matches-content">

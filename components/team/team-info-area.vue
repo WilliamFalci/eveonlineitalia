@@ -6,7 +6,7 @@
                 <div class="team__info-wrap">
                     <div class="team__info-discord">
                         <div class="about__content-circle">
-                            <img src="/images/icons/circle02.svg" alt="img" />
+                            <NuxtImg src="/images/icons/circle02.svg" alt="img" />
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
                                 <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
                                 <text>
@@ -25,7 +25,7 @@
                             <li>
                                 <div class="team__info-item">
                                     <div class="team__info-icon">
-                                        <img src="/images/others/team_vs02.png" alt="img"/>
+                                        <NuxtImg src="/images/others/team_vs02.png" alt="img"/>
                                     </div>
                                     <div class="team__info-content">
                                         <span class="sub">Member</span>

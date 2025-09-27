@@ -13,7 +13,7 @@
       @click="handleClickSound('/audio/tab.mp3')"
     >
       <span class="img-shape"></span>
-      <img :src="img" alt="img" />
+      <NuxtImg :src="img" alt="img" />
     </button>
   </li>
 </template>

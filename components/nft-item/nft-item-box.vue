@@ -1,18 +1,16 @@
 <template>
-  <div class="nft-item__box">
-    <div class="nft-item__thumb">
-      <nuxt-link to="/shop-details">
-        <img :src="item.img" alt="img" />
-      </nuxt-link>
+  <div class="nft-item__box" style="align-items: center;">
+    <div class="nft-item__thumb d-flex">
+      <NuxtImg :src="item.img" alt="img" style="width: 128px;" />
     </div>
     <div class="nft-item__content">
       <h4 class="title">
-        <nuxt-link to="/shop-details">{{ item.title }}</nuxt-link>
+        {{ item.title }}
       </h4>
       <div class="nft-item__avatar">
         <div class="avatar-name">
           <h5 class="name">
-            <nuxt-link to="/shop-details">{{ item.creator_name }}</nuxt-link>
+            {{ item.creator_name }}
           </h5>
         </div>
       </div>
@@ -22,7 +20,7 @@
             {{ item.eth }}
             <span class="currency">ISK</span>
           </p>
-          <a :href="item.url" target="_blank" class="bid-btn">
+          <a :href="item.url" target="_blank" class="bid-btn" style="margin-left: 10px">
             zKill <i class="fas fa-long-arrow-alt-right"></i>
           </a>
         </div>

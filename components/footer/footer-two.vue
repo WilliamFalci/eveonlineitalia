@@ -39,7 +39,7 @@
                             <div class="footer-el-widget text-start text-md-center widget_nav_menu">
                                 <div class="footer-el-logo mb-35">
                                     <nuxt-link to="/">
-                                        <img src="/images/logo/logo.png" alt="Mykd" />
+                                        <NuxtImg src="/images/logo/logo.png" alt="Mykd" />
                                     </nuxt-link>
                                 </div>
                             </div>

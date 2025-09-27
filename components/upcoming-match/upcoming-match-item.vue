@@ -7,7 +7,7 @@
     <div class="upcoming-match__position">
       <div class="upcoming-match__team team-left">
         <nuxt-link to="/team-details">
-          <img :src="team_1" alt="img" />
+          <NuxtImg :src="team_1" alt="img" />
         </nuxt-link>
       </div>
       <div class="upcoming-match__content">
@@ -29,7 +29,7 @@
       </div>
       <div class="upcoming-match__team team-right">
         <nuxt-link to="/team-details">
-          <img :src="team_2" alt="img" />
+          <NuxtImg :src="team_2" alt="img" />
         </nuxt-link>
       </div>
     </div>

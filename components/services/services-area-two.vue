@@ -7,7 +7,7 @@
                         <span class="sub-title2">Professional Esports Team</span>
                         <h3 class="title2">TOURNAMENTS <span class="text-theme">I’VE
                              <span class="d-inline-block position-relative">
-                                <img class="section-line" src="/images/others/section-line.png" alt="img">
+                                <NuxtImg class="section-line" src="/images/others/section-line.png" alt="img">
                                 BEEN A PART OF
                             </span>
                           </span>
@@ -19,7 +19,7 @@
                 <div v-for="(item) in serviceData" :key="item.id" class="col-xl-4 col-md-6">
                     <div class="service-card">
                         <div class="service-card-img">
-                            <img :src="item.img" alt="img">
+                            <NuxtImg :src="item.img" alt="img">
                         </div>
                         <div class="service-card-details">
                             <div class="service-card-meta">

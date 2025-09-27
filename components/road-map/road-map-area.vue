@@ -21,7 +21,7 @@
                   </nuxt-link>
                 </div>
                 <div class="roadMap__img">
-                  <img
+                  <NuxtImg
                     src="/images/others/roadmap.png"
                     class="tg-parallax"
                     data-scale="1.5"
@@ -47,7 +47,7 @@
                         {{ l.text }}
                       </li>
                     </ul>
-                    <img
+                    <NuxtImg
                       src="/images/others/roadmap_img.png"
                       alt="img"
                       class="roadMap__steps-img"

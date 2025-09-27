@@ -24,7 +24,7 @@
             <div class="col-lg-6">
                 <div class="services__images">
                     <div v-for="(s,i) in service_images" :key="i" :class="`services__images-item ${activeIndex === i ? 'active' : ''}`">
-                        <img :src="s" alt="img" />
+                        <NuxtImg :src="s" alt="img" />
                         <nuxt-link to="/service-details" class="services__link">
                             <i class="flaticon-next"></i>
                         </nuxt-link>

@@ -7,7 +7,7 @@
     <div class="match__winner-img tg-svg">
       <div class="team-logo-img">
         <nuxt-link to="/team-details">
-          <img :src="img" alt="img" />
+          <NuxtImg :src="img" alt="img" />
         </nuxt-link>
       </div>
       <svg-animate-icon icon="/images/icons/win_shape.svg" :id="`svg-${id}`" />

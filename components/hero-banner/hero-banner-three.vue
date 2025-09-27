@@ -1,29 +1,29 @@
 <template>
     <section class="banner__area banner__area-two">
         <div class="banner__bg-shape" style="background-image: url(/images/slider/banner_bg_shape3-2.jpg);">
-            <img src="/images/slider/banner_bg_shape3-1.jpg" alt="img">
+            <NuxtImg src="/images/slider/banner_bg_shape3-1.jpg" alt="img">
         </div>
         <div class="banner__bg tg-jarallax">
-            <img src="/images/slider/banner_bg3.png" alt="img">
+            <NuxtImg src="/images/slider/banner_bg3.png" alt="img">
         </div>
         <div class="banner__shape banner__shape3-1 jump">
-            <img src="/images/slider/slider_shape3-1.svg" alt="img">
+            <NuxtImg src="/images/slider/slider_shape3-1.svg" alt="img">
         </div>
         <div class="banner__shape banner__shape3-2 movingX">
-            <img src="/images/slider/slider_shape3-2.svg" alt="img">
+            <NuxtImg src="/images/slider/slider_shape3-2.svg" alt="img">
         </div>
         <div class="banner__shape banner__shape3-3 jump-reverse">
-            <img src="/images/slider/slider_shape3-3.svg" alt="img">
+            <NuxtImg src="/images/slider/slider_shape3-3.svg" alt="img">
         </div>
         <div class="container custom-container2">
             <div class="row gy-5 align-items-center flex-row-reverse">
                 <div class="col-xl-6">
                     <div class="banner__img wow bounceInRight" data-wow-delay=".4s">
                         <div class="banner__img-shape">
-                            <img src="/images/slider/thumb_bg_shape3-1.jpg" alt="img">
+                            <NuxtImg src="/images/slider/thumb_bg_shape3-1.jpg" alt="img">
                         </div>
                         <div class="thumb">
-                            <img src="/images/slider/slider_img03.png" alt="img">
+                            <NuxtImg src="/images/slider/slider_img03.png" alt="img">
                         </div>
                     </div>
                 </div>

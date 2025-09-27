@@ -7,17 +7,17 @@
             <div class="footer-widget">
               <div class="footer-logo logo">
                 <nuxt-link to="/contact">
-                  <img src="/images/logo/logo.png" alt="Logo" />
+                  <NuxtImg src="/images/logo/logo.png" alt="Logo" />
                 </nuxt-link>
               </div>
               <div class="footer-text">
                 <p class="desc">Lorem ipsum dolor sitamet consectur adipiscing Duis esollici tudin augue euismod. Nulla ullam dolor sitamet consectetur</p>
                 <p class="social-title">Active <span>With Us <i class="fas fa-angle-double-right"></i></span></p>
                 <div class="footer-social">
-                  <nuxt-link to="#"><img src="/images/icons/social_icon01.png" alt="iocn"/></nuxt-link>
-                  <nuxt-link to="#"><img src="/images/icons/social_icon02.png" alt="iocn"/></nuxt-link>
-                  <nuxt-link to="#"><img src="/images/icons/social_icon03.png" alt="iocn"/></nuxt-link>
-                  <nuxt-link to="#"><img src="/images/icons/social_icon04.png" alt="iocn"/></nuxt-link>
+                  <nuxt-link to="#"><NuxtImg src="/images/icons/social_icon01.png" alt="iocn"/></nuxt-link>
+                  <nuxt-link to="#"><NuxtImg src="/images/icons/social_icon02.png" alt="iocn"/></nuxt-link>
+                  <nuxt-link to="#"><NuxtImg src="/images/icons/social_icon03.png" alt="iocn"/></nuxt-link>
+                  <nuxt-link to="#"><NuxtImg src="/images/icons/social_icon04.png" alt="iocn"/></nuxt-link>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="col-md-5">
             <div class="copyright__card text-center text-md-end">
-              <img src="/images/others/payment_card.png" alt="img" />
+              <NuxtImg src="/images/others/payment_card.png" alt="img" />
             </div>
           </div>
         </div>

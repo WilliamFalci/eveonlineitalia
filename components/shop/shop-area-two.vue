@@ -9,7 +9,7 @@
                     <div class="shop__item2">
                         <div class="shop__item-thumb">
                             <nuxt-link href="/shop-details">
-                                <img :src="item.img" alt="img">
+                                <NuxtImg :src="item.img" alt="img">
                             </nuxt-link>
                             <div class="actions-btn-wrap">
                                 <span class="icon-btn">

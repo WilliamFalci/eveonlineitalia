@@ -27,10 +27,10 @@
           </div>
       </div>
       <div class="slider__shapes">
-          <img src="/images/slider/slider_shape01.png" alt="shape">
-          <img src="/images/slider/slider_shape02.png" alt="shape">
-          <img src="/images/slider/slider_shape03.png" alt="shape">
-          <img src="/images/slider/slider_shape04.png" alt="shape">
+          <NuxtImg src="/images/slider/slider_shape01.png" alt="shape">
+          <NuxtImg src="/images/slider/slider_shape02.png" alt="shape">
+          <NuxtImg src="/images/slider/slider_shape03.png" alt="shape">
+          <NuxtImg src="/images/slider/slider_shape04.png" alt="shape">
       </div>
       <div class="slider__brand-wrap">
           <div class="container custom-container">
@@ -43,7 +43,7 @@
                     :style="{ opacity: hoveredIndex === null || hoveredIndex === i ? 1 : 0.3, transition: 'opacity 0.3s' }"
                   >
                     <nuxt-link to="#">
-                      <img :src="brand" alt="brand" />
+                      <NuxtImg :src="brand" alt="brand" />
                     </nuxt-link>
                   </li>
               </ul>

@@ -7,7 +7,7 @@
                         <div class="footer-widget">
                             <div class="footer-logo logo">
                                 <nuxt-link href="/">
-                                    <img src="/images/logo/logo.png" alt="Logo">
+                                    <NuxtImg src="/images/logo/logo.png" alt="Logo">
                                 </nuxt-link>
                             </div>
                             <div class="footer-text">

@@ -1,6 +1,6 @@
 <template>
   <span class="mykd_mousemove">
-    <img :src="imgSrc" :data-depth="dataDepth" alt="img">
+    <NuxtImg :src="imgSrc" :data-depth="dataDepth" alt="img">
   </span>
 </template>
 

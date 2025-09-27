@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="team__details-img">
-                    <img src="/images/team/team_details.jpg" alt="img"/>
+                    <NuxtImg src="/images/team/team_details.jpg" alt="img"/>
                     <svg-dots/>
                 </div>
                 <div class="team__details-content">
@@ -22,12 +22,12 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="team__details-inner-img">
-                                    <img src="/images/team/team_details01.jpg" alt="img"/>
+                                    <NuxtImg src="/images/team/team_details01.jpg" alt="img"/>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="team__details-inner-img">
-                                    <img src="/images/team/team_details02.jpg" alt="img"/>
+                                    <NuxtImg src="/images/team/team_details02.jpg" alt="img"/>
                                 </div>
                             </div>
                         </div>
