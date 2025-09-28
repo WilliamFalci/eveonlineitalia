@@ -8,6 +8,11 @@
         {{ item.title }}
       </h4>
       <div class="nft-item__avatar">
+        <div class="avatar-img">
+          <a :href="item.creator_url" target="_blank">
+            <NuxtImg :src="item.creator" :alt="item.creator_name" />
+          </a>
+        </div>
         <div class="avatar-name">
           <h5 class="name">
             {{ item.creator_name }}
