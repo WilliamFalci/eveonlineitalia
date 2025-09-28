@@ -3836,7 +3836,7 @@ Default Tab Style
   }
 }
 .nft-item__box:hover {
-  border-color: rgba(69, 248, 130, 0.2);
+  border-color: var(--tg-theme-primary);
 }
 .nft-item__thumb {
   flex: 0 0 auto;
