@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'EVE Online Italia - Community italiana di EVE Online',
+      title: 'EVE Italia - Community Italiana di EVE Online',
+      description: `EVE Italia - La community italiana di EVE Online. Partecipa alla community italiana di EVE, scambia strategie, condividi esperienze e unisciti al nostro Discord per vivere l'universo di EVE Online.`,
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [
