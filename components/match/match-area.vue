@@ -3,7 +3,11 @@
         <div class="match__result-bg" style="background-image:url(/images/bg/result_bg.png)"></div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-6 col-md-10">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <header>
+                        <h1>EVE ITALIA – LA COMMUNITY ITALIANA DI EVE ONLINE</h1>
+                    </header>
+
                     <section>
                         <p>Benvenuti su <strong>EVE Italia</strong>, la <strong>community italiana di EVE
                                 Online</strong> e punto di riferimento per tutti i giocatori italiani del celebre MMO
@@ -15,7 +19,8 @@
                     <section>
                         <h2>Perché scegliere EVE Italia</h2>
                         <p><strong>EVE Italia</strong> nasce per offrire uno spazio neutro e amichevole a tutta la
-                            <strong>community italiana di EVE Online</strong>. Qui puoi:</p>
+                            <strong>community italiana di EVE Online</strong>. Qui puoi:
+                        </p>
                         <ul>
                             <li>Connetterti con altri giocatori italiani di <strong>EVE Online</strong>.</li>
                             <li>Scambiare opinioni, esperienze e strategie di gioco.</li>
@@ -24,9 +29,18 @@
                         </ul>
                         <p>Con <strong>EVE Italia</strong>, vogliamo unire i giocatori italiani in una vera
                             <strong>community</strong>, creando un ambiente inclusivo e collaborativo per chiunque ami
-                            esplorare l’universo di <strong>EVE Online</strong>.</p>
+                            esplorare l’universo di <strong>EVE Online</strong>.
+                        </p>
                     </section>
 
+                    <div class="about__content-bottom justify-content-center">
+                        <div class="about__funFact-images m-auto" style="margin-top:60px!important;">
+                            <NuxtImg src="/images/others/fun_fact_shape.png" alt="background" class="bg-shape" />
+                            <NuxtImg src="/images/others/fun_fact.png" class="main-img" alt="image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <section>
                         <h2>Cosa offre la nostra Community Italiana</h2>
                         <p>Entrando in <strong>EVE Italia</strong>, avrai accesso a:</p>
@@ -45,15 +59,18 @@
                         <p>Il cuore della <strong>community italiana di EVE Online</strong> è il server Discord di
                             <strong>EVE Italia</strong>, dove potrai interagire in tempo reale con altri giocatori,
                             condividere esperienze e ricevere supporto immediato. Qualunque sia il tuo obiettivo –
-                            esplorare, commerciare o combattere – qui troverai compagni pronti a partire con te.</p>
-                        <p><a href="#" target="_blank"><strong>👉 Entra ora nel Discord di EVE Italia</strong></a></p>
+                            esplorare, commerciare o combattere – qui troverai compagni pronti a partire con te.
+                        </p>
+                        <p><a href="https://discord.gg/t7ypApFQ7v" target="_blank"><strong>👉 Entra ora nel Discord di
+                                    EVE Italia</strong></a></p>
                     </section>
 
                     <section>
                         <h2>Vivi l’universo di EVE Online con EVE Italia</h2>
                         <p>In <strong>EVE Italia</strong>, divertimento e condivisione sono al centro: la nostra
                             <strong>community italiana</strong> ti accompagna nell’universo di <strong>EVE
-                                Online</strong> con eventi, discussioni e attività per ogni tipo di giocatore.</p>
+                                Online</strong> con eventi, discussioni e attività per ogni tipo di giocatore.
+                        </p>
                         <p>Non perdere l’occasione di unirti alla <strong>community italiana di EVE</strong>. Diventa
                             parte di <strong>EVE Italia</strong> e vivi la tua avventura spaziale insieme a migliaia di
                             appassionati come te.</p>

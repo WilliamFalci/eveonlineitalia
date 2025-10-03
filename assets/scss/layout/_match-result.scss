@@ -11,14 +11,14 @@
             z-index: 1;
         }
         &-bg {
-            position: absolute;
-            left: 0;
+            background-position: top;
+            background-size: cover;
             bottom: 0;
-            width: 100vw;
-            height: calc(100% + 70px);
-            background-position: top center;
+            height: calc(100% + 100px);
+            left: 0;
+            position: absolute;
+            width: 100%;
             z-index: -1;
-            background: no-repeat;
         }
         &-wrapper {
             &>* {
