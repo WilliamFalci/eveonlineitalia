@@ -23,6 +23,7 @@
                 <span>DISCORD</span>
               </a>
             </div>
+            <p class="mt-3 wow bounceInLeft" style="text-shadow: 4px 1px 2px #000000;" data-wow-delay=".7s">CANALE IN GIOCO: EOITALIA</p>
           </div>
         </div>
       </div>

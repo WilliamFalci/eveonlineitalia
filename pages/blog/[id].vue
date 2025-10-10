@@ -21,7 +21,7 @@ import type { IBlogTranslated } from "@/types/blog-type";
 useSeoMeta({ title: "EVE Online Italia - Blog" });
 const route = useRoute();
 const currentLang = ref('ita')
-const { data: news } = await useFetch(`/api/eve-news-by-guid?guid=${route.params.id}`)
+const { data: news } = await useFetch(`/api/eve-news-by-slug?slug=${route.params.id}`)
 const blog = news.value as IBlogTranslated
 
 const handleUpdateCurrLang = async (newValue: string) => {

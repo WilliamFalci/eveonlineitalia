@@ -20,4 +20,5 @@ export interface IBlogTranslated {
   pubDate: Date;
   content_eng: string;
   content_ita: string;
+  slug: string;
 }

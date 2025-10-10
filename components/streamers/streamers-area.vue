@@ -13,12 +13,10 @@
             <SwiperSlide v-for="item in streamers_data" :key="item.id">
                 <div class="streamers__item">
                     <div class="streamers__thumb">
-                        <nuxt-link to="/team-details">
-                          <NuxtImg :src="item.img" alt="img" />
-                        </nuxt-link>
+                      <NuxtImg :src="item.img" alt="img" />
                     </div>
                     <div class="streamers__content">
-                        <h4 class="name">{{item.title}}</h4>
+                      <h4 class="name">{{item.title}}</h4>
                     </div>
                 </div>
             </SwiperSlide>

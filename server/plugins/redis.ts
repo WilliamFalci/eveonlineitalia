@@ -35,6 +35,17 @@ export default defineNitroPlugin(() => {
         return html;
     }
 
+    function createSlug(title: string): string {
+        return title
+            .toLowerCase() // tutto minuscolo
+            .normalize("NFD") // separa lettere accentate
+            .replace(/[\u0300-\u036f]/g, "") // rimuove accenti
+            .replace(/[^a-z0-9\s-]/g, "") // rimuove caratteri non validi
+            .trim() // rimuove spazi iniziali e finali
+            .replace(/\s+/g, "-") // sostituisce spazi con "-"
+            .replace(/-+/g, "-"); // rimuove eventuali "-" multipli
+    }
+
     const eveOnlineNewsQueueProcessor = (job: Job, done: () => void) => {
         console.log(`Processing job: ${job.id} - Processing News Translation - guid: ${job.data.guid}`);
 
@@ -42,8 +53,20 @@ export default defineNitroPlugin(() => {
         try {
             translate(maskedHtml, { to: 'it' }).then(async (textTranslated: any) => {
                 const restoredHtml = restoreMedia(textTranslated.text, map);
+
+                let updateObj
+                if (job.data.column == 'title_ita') {
+                    const slug = createSlug(restoredHtml)
+                    updateObj = {
+                        [job.data.column]: restoredHtml,
+                        slug: slug
+                    };
+                }else {
+                    updateObj = {[job.data.column]: restoredHtml};
+                }
+
                 serverSupabase.from('eveonline_news')
-                    .update([{ [job.data.column]: restoredHtml }])
+                    .update([updateObj])
                     .eq('guid', job.data.guid)
                     .then(() => done())
             })
@@ -58,13 +81,13 @@ export default defineNitroPlugin(() => {
 
         if (job.data.guid) {
             const webhookUrl = "https://discord.com/api/webhooks/1421525453180502078/0Vg57RHv0Px0MYUqlLihR8uRnoyJrhri1HDvcCiHyDLnN0153Dax9e7XSknuKUiG38gw";
-    
+
             let { data: eveonline_news, error } = await serverSupabase
                 .from('eveonline_news')
                 .select('*')
                 .eq('guid', job.data.guid)
-    
-            if (eveonline_news && eveonline_news![0]){
+
+            if (eveonline_news && eveonline_news![0] && eveonline_news![0].message == null) {
                 const payload = {
                     embeds: [
                         {
@@ -79,12 +102,16 @@ export default defineNitroPlugin(() => {
                         }
                     ]
                 };
-        
-                await fetch(webhookUrl, {
+
+                const message = await fetch(webhookUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload),
                 });
+
+                await serverSupabase.from('eveonline_news')
+                    .update([{ message: message.json()}])
+                    .eq('guid', job.data.guid)
             }
         }
     })

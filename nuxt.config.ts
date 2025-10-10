@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       supabaseServiceKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp2cGV6aGpuaHRnamdicXpmYXRmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0Mjc0MjUwNywiZXhwIjoyMDU4MzE4NTA3fQ.d5blz0lw4XFBY2ha0e2RW9dTJR6SZeTE3huc8mb9yvI'
     }
   },
-  modules: ['nuxt-scheduler', '@nuxtjs/sitemap', '@nuxt/image'],
+  modules: ['nuxt-scheduler', '@nuxtjs/sitemap', '@nuxt/image', '@nuxtjs/robots'],
   image: {
     format: ['webp']
   },

@@ -21,13 +21,11 @@
           >
             <div class="team__item">
               <div class="team__thumb">
-                <nuxt-link to="/team-details">
-                  <NuxtImg :src="t.img" alt="img" />
-                </nuxt-link>
+                <NuxtImg :src="t.img" alt="img" />
               </div>
               <div class="team__content">
                 <h4 class="name">
-                  <nuxt-link to="/team-details">{{t.title}}</nuxt-link>
+                  {{t.title}}
                 </h4>
                 <span class="designation">{{t.subtitle}}</span>
               </div>

@@ -12,11 +12,11 @@
         </ul>
       </div>
       <h2 class="title">
-        <a :href="`/blog/${blog.guid}`">{{ currentLang == 'ita' ? blog.title_ita : blog.title_eng }}</a>
+        <a :href="`/blog/${blog.slug}`">{{ currentLang == 'ita' ? blog.title_ita : blog.title_eng }}</a>
       </h2>
       <div class="blog-post-bottom align-items-center">
         <div class="blog-post-read">
-          <a :href="`/blog/${blog.guid}`">
+          <a :href="`/blog/${blog.slug}`">
             LEGGI ARTICOLO <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -30,11 +30,12 @@
 
 <script setup lang="ts">
 import type { IBlogTranslated } from "@/types/blog-type";
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { capitalizeAll, formatDate } from "../../utils/utils";
 
 const currentLang = ref('ita')
 const props = defineProps<{ blog: IBlogTranslated }>()
-const dataIta = computed(() => capitalizeAll(formatDate(props.blog.pubDate.substring(0,10))))
+const dataIta = computed(() => capitalizeAll(formatDate(props.blog.pubDate.toString().substring(0,10))))
 
 const changeLang = () => {
   currentLang.value = currentLang.value === 'ita' ? 'eng' : 'ita'
