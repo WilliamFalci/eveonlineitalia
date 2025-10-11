@@ -216,7 +216,7 @@
     }
     &__time {
         @include border-radius(15px);
-        border: 4px solid #3f3f49;
+        border: 4px solid var(--tg-theme-primary);
         background: rgba(12, 23, 29, 0.671);
         width: 140px;
         height: 110px;

@@ -21,8 +21,8 @@
           <div
             class="col-xl-6 col-lg-5 position-relative d-none d-lg-block"
           >
-            <div class="breadcrumb__img">
-              <NuxtImg :src="brd_img" alt="img" />
+            <div class="breadcrumb__img" v-if="brd_img">
+              <NuxtImg :src="brd_img" alt="img" style="border-radius: 100%; border:5px solid var(--tg-theme-primary)" />
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ withDefaults(
   }>(),
   {
     bg: "/images/bg/breadcrumb_bg01.jpg",
-    brd_img: "/images/others/breadcrumb_img01.png",
+    brd_img: null,
   }
 );
 </script>

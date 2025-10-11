@@ -27,10 +27,6 @@
       </div>
     </div>
 
-     <!-- header-search --> 
-    <popup-search :isActive="isActive" @closeSearch="handleCloseSearch"></popup-search>
-     <!-- header-search-end -->
-
     <!--  off canvas start -->
     <off-canvas :isOffCanvasOpen="isOffCanvasOpen" @closeOffcanvas="handleCloseOffCanvas" />
     <!--  off canvas end -->

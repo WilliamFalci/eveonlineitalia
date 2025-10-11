@@ -9,11 +9,6 @@
                         </div>
                         <div class="tgmenu__wrap">
                             <nav class="tgmenu__nav">
-                                <div class="logo">
-                                    <nuxt-link href="/">
-                                        <NuxtImg src="/images/logo/logo.png" alt="Logo">
-                                    </nuxt-link>
-                                </div>
                                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                     <!-- nav menus start -->
                                     <header-nav-menus />
@@ -21,15 +16,8 @@
                                 </div>
                                 <div class="tgmenu__action d-none d-md-block">
                                     <ul class="list-wrap">
-                                        <li class="header-btn">
-                                            <nuxt-link href="/login" class="tg-btn-4">
-                                                <span>Get A Quote</span>
-                                            </nuxt-link>
-                                        </li>
                                         <li @click="handleOpenOffCanvas('/audio/click.wav')" class="side-toggle-icon">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
+                                            <NuxtImg src="/images/logo/logo.png" alt="Logo"/>
                                         </li>
                                     </ul>
                                 </div>
@@ -52,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const isOffCanvasOpen = ref<boolean>(false);
 const isMobileOffCanvasOpen = ref<boolean>(false);
 

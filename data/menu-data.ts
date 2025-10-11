@@ -14,13 +14,16 @@ const menu_data: IMenuDataType[] = [
     id: 1,
     title: "Home",
     link: "/",
-    /* sub_menu: [
-      { title: "Home One", link: "/" },
-      { title: "Home Two", link: "/home-2" },
-      { title: "Home Three", link: "/home-3" },
-      { title: "Home Four", link: "/home-4" },
-      { title: "Home Five", link: "/home-5" },
-    ], */
+  },
+  {
+    id: 2,
+    title: "Corporazioni",
+    link: "/corporazioni",
+  },
+  {
+    id: 3,
+    title: "Giocatori",
+    link: "/giocatori",
   },
 /*   {
     id: 2,

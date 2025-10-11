@@ -1,13 +1,53 @@
+import { eveMember } from '~/types/eve';
 import { serverSupabase } from '../utils/supabase'
 
 export default defineEventHandler(async (event) => {
-  let { data: eveonline_users, error } = await serverSupabase
-    .from('eveonline_users')
-    .select('*')
+  const query = getQuery(event)
+
+  const take = query.take ?? 9
+  const page = query.page ?? 1
+  const q = query.q ?? null
+  const queryTake = (page == 1) ? (Number(take) - 1) : ((Number(page) * Number(take)) - 1)
+  
+  let _count = null
+  let dataUsers = null
+  
+  if (q !== null){
+    const { data, count } = await serverSupabase
+      .from('eveonline_users')
+      .select('*', { count: 'exact', head: true })
+      .ilike('char_name', `%${q.toString()}%`)
+
+    let { data: eveonline_users, error } = await serverSupabase
+      .from('eveonline_users')
+      .select('*')
+      .ilike('char_name', `%${q.toString()}%`)
+      .order('eve_online_id', { ascending: false })
+      .range(queryTake-8,queryTake)
+
+    dataUsers = eveonline_users
+    _count = count
+  }else{
+    const { data, count } = await serverSupabase
+      .from('eveonline_users')
+      .select('*', { count: 'exact', head: true })
+      
+    let { data: eveonline_users, error } = await serverSupabase
+      .from('eveonline_users')
+      .select('*')
+      .order('eve_online_id', { ascending: false })
+      .range(queryTake-8,queryTake)
+
+    dataUsers = eveonline_users
+    _count = count
+  }
+
+
+  const totPages = Math.ceil(Number(_count) / Number(take))
 
   let result: any[] | PromiseLike<any[]> = []
-  if (eveonline_users && eveonline_users?.length > 0){
-    result = await eveonline_users.map((user) => {
+  if (dataUsers && dataUsers?.length > 0) {
+    result = await dataUsers.map((user) => {
       return {
         eve_online_id: user.eve_online_id,
         eve_corp_id: user.eve_corp_id,
@@ -16,15 +56,14 @@ export default defineEventHandler(async (event) => {
         corp_logo: `https://images.evetech.net/corporations/${user.eve_corp_id}/logo?size=128`
       }
     })
-
-    result.push({
-      eve_online_id: "789877270",
-      eve_corp_id: "98630834",
-      char_name: "TremalJack",
-      picture: "https://images.evetech.net/characters/789877270/portrait?size=512",
-      corp_logo: "https://images.evetech.net/corporations/98630834/logo?size=128"
-    })
   }
-  
-  return result
+
+  return {
+    elements: result as eveMember[],
+    totalElements: _count,
+    currPage: Number(page),
+    prevPage: (Number(page) > 1) ? Number(page) + 1 : null,
+    nextPage: (Number(page) < totPages) ? Number(page) + 1 : null,
+    totPages: Number(totPages)
+  }
 });

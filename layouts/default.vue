@@ -1,5 +1,6 @@
 <template>
   <div>
+    <header-three></header-three>
     <main class="main--area">
       <slot/>
     </main>

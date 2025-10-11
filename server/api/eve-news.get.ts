@@ -1,4 +1,3 @@
-import { useNuxtApp } from "nuxt/app";
 import { IBlog } from "~/types/blog-type";
 import { serverSupabase } from '../utils/supabase'
 

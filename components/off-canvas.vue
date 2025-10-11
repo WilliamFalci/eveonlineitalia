@@ -2,61 +2,38 @@
   <div :class="`${isOffCanvasOpen ? 'offCanvas__menu-visible' : ''}`">
     <div class="offCanvas__wrap">
       <div class="offCanvas__body">
-        <div class="offCanvas__top">
+        <div class="offCanvas__top" style="justify-content: center;">
           <div class="offCanvas__logo logo">
-            <nuxt-link to="/">
-              <NuxtImg src="/images/logo/logo.png" alt="Logo" />
-            </nuxt-link>
-          </div>
-          <div
-            class="offCanvas__toggle"
-            @click="closeOffcanvas"
-          >
-            <i class="flaticon-swords-in-cross-arrangement"></i>
+            <NuxtImg src="/images/logo/logo.png" alt="Logo" />
           </div>
         </div>
         <div class="offCanvas__content">
-          <h2 class="title">
-            Best Seller of Month Ideas for <span>NFT Wallet</span>
+          <h2 class="title text-center">
+            EVE ONLINE <span>ITALIA</span>
           </h2>
           <div class="offCanvas__contact">
-            <h4 class="small-title">CONTACT US</h4>
+            <p>Progetto nato e gestito dal giocatore TremalJack con l'obiettivo di aumentarà la visibilità del gioco EVE Online sul piano nazionale.</p>
+            <p>Favorendo l'integrazione sociale tra i giocatori nonostante le diversità di pensiero e di appartenza a corporazioni, alleanze e coalizioni.</p>
+            <hr style="border: 1px solid var(--tg-theme-primary)"/>
+            <p>Vuoi supportare questo progetto?</p>
             <ul class="offCanvas__contact-list list-wrap">
               <li>
-                <nuxt-link to="tel:93332225557">+9 333 222 5557</nuxt-link>
+                Entra nel sever <nuxt-link to="https://discord.gg/t7ypApFQ7v" target="_blank">DISCORD</nuxt-link>
               </li>
+            </ul>
+            <br/>
+            <br/>
+            <p>Vuoi contribuire alle spese di mantenimento e sviluppo?</p>
+            <ul class="offCanvas__contact-list list-wrap">
               <li>
-                <nuxt-link to="mailto:info@webmail.com">
-                  info@webmail.com
-                </nuxt-link>
+                Non si accettano donazioni monatorie, ma se vuoi proprio donare allora puoi donare quanto vuoi in ISK in-game a: TremalJack
               </li>
-              <li>New Central Park W7 Street,New York</li>
             </ul>
           </div>
-          <div class="offCanvas__newsletter">
-            <h4 class="small-title">Subscribe</h4>
-            <form action="#" class="offCanvas__newsletter-form">
-              <input type="email" placeholder="Get News & Updates" />
-              <button type="submit">
-                <i class="flaticon-send"></i>
-              </button>
-            </form>
-            <p>
-              Subscribe dolor sitamet, consectetur adiping eli. Duis esollici
-              tudin augue.
-            </p>
-          </div>
-          <ul class="offCanvas__social list-wrap">
-              <li v-for="(s, i) in social_data" :key="i">
-                <nuxt-link :to="s.link" target="_blank">
-                  <i :class="s.icon"></i>
-                </nuxt-link>
-              </li>
-          </ul>
         </div>
         <div class="offCanvas__copyright">
           <p>
-            Copyright © {{new Date().getFullYear()}} - By <span>MYKD</span>
+            Con dedizione <span>TremalJack</span>
           </p>
         </div>
       </div>

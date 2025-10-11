@@ -132,7 +132,6 @@
                 border-radius: 50%;
                 border: 7px solid #11131C;
                 justify-content: center;
-                padding: 0 14px;
                 @media #{$md} {
                     display: none;
                 }
@@ -245,7 +244,7 @@
                     text-transform: uppercase;
                     color: var(--tg-heading-color);
                     font-family: var(--tg-heading-font-family);
-                    padding: 38px 23px;
+                    padding: 11px 23px;
                     display: block;
                     line-height: 1;
                     position: relative;

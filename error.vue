@@ -28,10 +28,6 @@
             <!-- error-area-end -->
 
         </main>
-
-        <!-- footer area -->
-        <footer-one />
-        <!-- footer area -->
     </div>
 </template>
 
