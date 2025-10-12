@@ -1,5 +1,5 @@
 <template>
-    <section class="tournament-area section-pt-120 section-pb-90">
+    <section class="tournament-area section-pt-120 section-pb-90" v-if="stats">
         <div class="container">
             <div class="tournament__wrapper">
                 <hr style="border: 2px solid var(--tg-theme-primary)" />
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <hr style="border: 2px solid var(--tg-theme-primary)" />
-                <template v-if="stats.topLists.find((x: any) => x.type == 'shipType').values.length > 0">
+                <template v-if="stats.topLists && stats.topLists.find((x: any) => x.type == 'shipType').values.length > 0">
                     <div class="row justify-content-center gutter-25" v-if="stats">
                         <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                             <big-stats-box-item type="ships" subtitle="ULTIMA SETTIMANA" title="NAVI"
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <hr style="border: 2px solid var(--tg-theme-primary)" />
-                <div class="row justify-content-center gutter-25" v-if="stats">
+                <div class="row justify-content-center gutter-25" v-if="stats.topAllTime">
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                         <big-stats-box-item type="ships" subtitle="ULTIMO MESE" title="NAVI"
                             v-if="stats.topAllTime.find((x: any) => x.type == 'ship').data.length > 0"
@@ -73,6 +73,10 @@
                             :data="stats.topAllTime.find((x: any) => x.type == 'system').data.slice(1, 4)" />
                     </div>
                 </div>
+                <template v-else>
+                    <p class="text-center text-uppercase">nessuna attività nell'ultimo mese
+                    </p>
+                </template>
             </div>
         </div>
     </section>
