@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg
-      class="main-bg"
+      class="main-bg w-auto h-auto"
       x="0px"
       y="0px"
       viewBox="0 0 357 533"
@@ -15,6 +15,7 @@
         fill="#19222B"
         stroke="#4C4C4C"
         stroke-width="0.25"
+        min-width="353"
       />
     </svg>
     <svg

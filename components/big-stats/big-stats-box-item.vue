@@ -1,6 +1,6 @@
 <template>
   <div :class="`tournament__box-wrap`">
-    <svg-t-box-bg />
+    <svg-t-box-bg/>
     <div class="tournament__box-price">
       <i class="fas fa-trophy"></i>
       <span>TOP</span>
