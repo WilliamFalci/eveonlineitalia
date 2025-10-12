@@ -3,7 +3,7 @@
     <!-- breadcrumb area start -->
     <breadcrumb-one
       :title="`[${killStats.info.ticker}] ${killStats.info.name}`"
-      subtitle="corporation"
+      subtitle="corporazione"
       bg="/images/bg/breadcrumb_bg01.jpg"
       :brd_img="`https://images.evetech.net/corporations/${route.params.id}/logo?size=512`"
     />

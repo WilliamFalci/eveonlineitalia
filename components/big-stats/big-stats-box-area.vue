@@ -46,14 +46,14 @@
                     <div class="col-xl-6 col-lg-7 col-md-10">
                         <div class="section__title text-center">
                             <text-animation title='Statistiche' />
-                            <h3 class="title">ULTIMO MESE</h3>
+                            <h3 class="title">TOTALI</h3>
                         </div>
                     </div>
                 </div>
                 <hr style="border: 2px solid var(--tg-theme-primary)" />
                 <div class="row justify-content-center gutter-25" v-if="stats.topAllTime">
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                        <big-stats-box-item type="ships" subtitle="ULTIMO MESE" title="NAVI"
+                        <big-stats-box-item type="ships" subtitle="TOTALI" title="NAVI"
                             v-if="stats.topAllTime.find((x: any) => x.type == 'ship').data.length > 0"
                             :topOfAll="stats.topAllTime.find((x: any) => x.type == 'ship').data[0]"
                             :data="stats.topAllTime.find((x: any) => x.type == 'ship').data.slice(1, 4)" />
@@ -61,20 +61,20 @@
 
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9"
                         v-if="type == 'corp' && stats.topAllTime.find((x: any) => x.type == 'character').data.length > 0">
-                        <big-stats-box-item type="chars-top" subtitle="ULTIMO MESE" title="GIOCATORI"
+                        <big-stats-box-item type="chars-top" subtitle="TOTALI" title="GIOCATORI"
                             :topOfAll="stats.topAllTime.find((x: any) => x.type == 'character').data[0]"
                             :data="stats.topAllTime.find((x: any) => x.type == 'character').data.slice(1, 4)" />
                     </div>
 
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                        <big-stats-box-item type="systems" subtitle="ULTIMO MESE" title="SISTEMI"
+                        <big-stats-box-item type="systems" subtitle="TOTALI" title="SISTEMI"
                             v-if="stats.topAllTime.find((x: any) => x.type == 'system').data.length > 0"
                             :topOfAll="stats.topAllTime.find((x: any) => x.type == 'system').data[0]"
                             :data="stats.topAllTime.find((x: any) => x.type == 'system').data.slice(1, 4)" />
                     </div>
                 </div>
                 <template v-else>
-                    <p class="text-center text-uppercase">nessuna attività nell'ultimo mese
+                    <p class="text-center text-uppercase">nessuna attività nell'TOTALI
                     </p>
                 </template>
             </div>

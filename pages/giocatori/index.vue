@@ -14,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-useSeoMeta({ title: "Shop - MYKD" });
+useSeoMeta({ title: "Giocatori Italiani della community EVE Online" });
 </script>
