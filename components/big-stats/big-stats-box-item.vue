@@ -33,6 +33,16 @@
         {{ topOfAll.kills }} <i class="fas fa-skull"></i>
       </span>
     </div>
+
+    <div class="tournament__box-prize" v-if="type=='chars-top'">
+      <div class="tournament__player-thumb">
+        <img :src="`https://images.evetech.net/characters/${topOfAll.characterID}/portrait?size=128`" alt="img" />
+      </div>
+      <span>{{ selectName(topOfAll.characterID) }}</span>
+      <span class="tournament__player-price">
+        {{ topOfAll.kills }} <i class="fas fa-skull"></i>
+      </span>
+    </div>
     
     <div class="tournament__box-prize" v-if="names && type=='systems'">
       <div class="tournament__player-thumb">
@@ -63,6 +73,18 @@
             <img :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
           </div>
           <h6 class="tournament__player-name">{{ l.characterName }}</h6>
+          <span class="tournament__player-price">
+            {{ l.kills }} <i class="fas fa-skull"></i>
+          </span>
+        </div>
+      </li>
+
+      <li v-for="l in data" :key="l.id" v-if="type=='chars-top'">
+        <div class="tournament__box-list-item">
+          <div class="tournament__player-thumb">
+            <img :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
+          </div>
+          <h6 class="tournament__player-name">{{ selectName(l.characterID) }}</h6>
           <span class="tournament__player-price">
             {{ l.kills }} <i class="fas fa-skull"></i>
           </span>
@@ -100,6 +122,11 @@ if (props.type == "ships") {
 
 if (props.type == "systems") {
   const { data: systems } = await useFetch('https://esi.evetech.net/universe/names', { method: 'POST', body: props.data.map((x: any) => x.solarSystemID).concat(props.topOfAll.solarSystemID) })
+  names.value = systems.value
+}
+
+if (props.type == "chars-top") {
+  const { data: systems } = await useFetch('https://esi.evetech.net/universe/names', { method: 'POST', body: props.data.map((x: any) => x.characterID).concat(props.topOfAll.characterID) })
   names.value = systems.value
 }
 </script>

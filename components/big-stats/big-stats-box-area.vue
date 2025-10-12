@@ -61,7 +61,7 @@
 
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9"
                         v-if="type == 'corp' && stats.topAllTime.find((x: any) => x.type == 'character').data.length > 0">
-                        <big-stats-box-item type="chars" subtitle="ULTIMO MESE" title="GIOCATORI"
+                        <big-stats-box-item type="chars-top" subtitle="ULTIMO MESE" title="GIOCATORI"
                             :topOfAll="stats.topAllTime.find((x: any) => x.type == 'character').data[0]"
                             :data="stats.topAllTime.find((x: any) => x.type == 'character').data.slice(1, 4)" />
                     </div>
