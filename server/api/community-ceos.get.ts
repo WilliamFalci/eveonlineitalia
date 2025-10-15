@@ -7,9 +7,8 @@ export default defineEventHandler(async (event) => {
       eve_online_id,
       eve_corp_id,
       char_name`)
-    .eq('isCeo', true)
-
-
+    .or('isCeo.eq.true, isWingDirector.eq.true')
+    
   let result: any[] | PromiseLike<any[]> = []
   if (eveonline_ceos && eveonline_ceos?.length > 0){
     
