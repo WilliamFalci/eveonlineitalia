@@ -32,13 +32,13 @@ import { useFetch, useRoute, useSeoMeta } from 'nuxt/app';
 import { ref } from 'vue';
 
 const route = useRoute();
-const killStats = ref(null)
+const killStats = ref()
 const ceo = ref(null)
-const propaganda = ref(null)
+const propaganda = ref()
 
 const {data: zkillboard} = await useFetch(`https://zkillboard.com/api/stats/corporationID/${route.params.id}/`) as any
+const {data: userData} = await useFetch(`/api/eve-ceo-data-by-corp-id?eve_corp_id=${route.params.id}`) as any
 const {data: ceoData} = await useFetch(`https://esi.evetech.net/characters/${zkillboard?.value?.info?.ceo_id}`) as any
-const {data: userData} = await useFetch(`/api/discord-id-by-eve-online-id?eve_online_id=${zkillboard?.value?.info?.ceo_id}`) as any
 const {data: _propaganda} = await useFetch(`https://eveonlineitalia.it/public/corpBulletin?discord_id=${userData.value.discord_id}`)
 
 killStats.value = zkillboard.value
