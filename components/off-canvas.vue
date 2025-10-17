@@ -26,7 +26,7 @@
             <p>Vuoi contribuire alle spese di mantenimento e sviluppo?</p>
             <ul class="offCanvas__contact-list list-wrap">
               <li>
-                Non si accettano donazioni monatorie, ma se vuoi proprio donare allora puoi donare quanto vuoi in ISK in-game a: TremalJack
+                Non si accettano donazioni monetarie, ma se vuoi proprio donare allora puoi donare quanto vuoi in ISK in-game a: TremalJack
               </li>
             </ul>
           </div>

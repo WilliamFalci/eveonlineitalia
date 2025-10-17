@@ -92,7 +92,7 @@ export default defineNitroPlugin(() => {
                     embeds: [
                         {
                             title: eveonline_news[0].title_ita,
-                            url: `https://eveonlineitalia.it/blog/${job.data.guid}`,
+                            url: `https://eveonlineitalia.it/blog/${eveonline_news[0].slug}`,
                             description: "Leggi l'articolo sul sito",
                             color: 0x5865F2, // blu discord
                             author: {
