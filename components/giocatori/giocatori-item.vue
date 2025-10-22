@@ -2,9 +2,9 @@
    <div class="shop__item">
       <div class="shop__item-thumb">
         <nuxt-link :to="`/giocatore/${item.eve_online_id}`">
-          <img :src="item.picture" alt="img"/>
+          <NuxtImg format="webp" :src="item.picture" alt="img"/>
         </nuxt-link>
-        <img :src="item.corp_logo" alt="img" style="position: absolute; right: 5px; bottom: 6px; width: 40px;"/>
+        <NuxtImg format="webp" :src="item.corp_logo" alt="img" style="position: absolute; right: 5px; bottom: 6px; width: 40px;"/>
       </div>
       <div class="shop__item-line"></div>
       <div class="shop__item-content">

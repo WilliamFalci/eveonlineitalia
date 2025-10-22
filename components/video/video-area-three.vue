@@ -18,7 +18,7 @@
                             <swiper-slide v-for="(item) in videoItemData" :key="item.id">
                                 <div class="video__item2">
                                     <div class="video__thumb">
-                                        <NuxtImg :src="item.imgSrc" alt="img" />
+                                        <NuxtImg format="webp" :src="item.imgSrc" alt="img" />
                                         <a @click="playVideo(item.videoId)" class="popup-video video-play-btn pointer">
                                             <svg-video-icon />
                                         </a>

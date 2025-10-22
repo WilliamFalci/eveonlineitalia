@@ -16,7 +16,7 @@
 
     <div class="tournament__box-prize" v-if="names && type=='ships'">
       <div class="tournament__player-thumb">
-        <img :src="`https://images.evetech.net/types/${topOfAll.shipTypeID}/render?size=128`" alt="img" />
+        <NuxtImg format="webp" :src="`https://images.evetech.net/types/${topOfAll.shipTypeID}/render?size=128`" alt="img" />
       </div>
       <span>{{ selectName(topOfAll.shipTypeID) }}</span>
       <span class="tournament__player-price">
@@ -26,7 +26,7 @@
 
     <div class="tournament__box-prize" v-if="type=='chars'">
       <div class="tournament__player-thumb">
-        <img :src="`https://images.evetech.net/characters/${topOfAll.characterID}/portrait?size=128`" alt="img" />
+        <NuxtImg format="webp" :src="`https://images.evetech.net/characters/${topOfAll.characterID}/portrait?size=128`" alt="img" />
       </div>
       <span>{{ topOfAll.characterName }}</span>
       <span class="tournament__player-price">
@@ -36,7 +36,7 @@
 
     <div class="tournament__box-prize" v-if="type=='chars-top'">
       <div class="tournament__player-thumb">
-        <img :src="`https://images.evetech.net/characters/${topOfAll.characterID}/portrait?size=128`" alt="img" />
+        <NuxtImg format="webp" :src="`https://images.evetech.net/characters/${topOfAll.characterID}/portrait?size=128`" alt="img" />
       </div>
       <span>{{ selectName(topOfAll.characterID) }}</span>
       <span class="tournament__player-price">
@@ -46,7 +46,7 @@
     
     <div class="tournament__box-prize" v-if="names && type=='systems'">
       <div class="tournament__player-thumb">
-        <img :src="`https://zkillboard.com/img/nohus/systems/${topOfAll.solarSystemID}.png`" alt="img" />
+        <NuxtImg format="webp" :src="`https://zkillboard.com/img/nohus/systems/${topOfAll.solarSystemID}.png`" alt="img" />
       </div>
       <span>{{ selectName(topOfAll.solarSystemID) }}</span>
       <span class="tournament__player-price">
@@ -58,7 +58,7 @@
       <li v-for="l in data" :key="l.id" v-if="names && type=='ships'">
         <div class="tournament__box-list-item">
           <div class="tournament__player-thumb">
-            <img :src="`https://images.evetech.net/types/${l.shipTypeID}/render?size=128`" alt="img" />
+            <NuxtImg format="webp" :src="`https://images.evetech.net/types/${l.shipTypeID}/render?size=128`" alt="img" />
           </div>
           <h6 class="tournament__player-name">{{ selectName(l.shipTypeID.toString()) }}</h6>
           <span class="tournament__player-price">
@@ -70,7 +70,7 @@
       <li v-for="l in data" :key="l.id" v-if="type=='chars'">
         <div class="tournament__box-list-item">
           <div class="tournament__player-thumb">
-            <img :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
+            <NuxtImg format="webp" :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
           </div>
           <h6 class="tournament__player-name">{{ l.characterName }}</h6>
           <span class="tournament__player-price">
@@ -82,7 +82,7 @@
       <li v-for="l in data" :key="l.id" v-if="type=='chars-top'">
         <div class="tournament__box-list-item">
           <div class="tournament__player-thumb">
-            <img :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
+            <NuxtImg format="webp" :src="`https://images.evetech.net/characters/${l.characterID}/portrait?size=128`" alt="img" />
           </div>
           <h6 class="tournament__player-name">{{ selectName(l.characterID) }}</h6>
           <span class="tournament__player-price">
@@ -94,7 +94,7 @@
       <li v-for="l in data" :key="l.id" v-if="names && type=='systems'">
         <div class="tournament__box-list-item">
           <div class="tournament__player-thumb">
-            <img :src="`https://zkillboard.com/img/nohus/systems/${l.solarSystemID}.png`" alt="img" />
+            <NuxtImg format="webp" :src="`https://zkillboard.com/img/nohus/systems/${l.solarSystemID}.png`" alt="img" />
           </div>
           <h6 class="tournament__player-name">{{ selectName(l.solarSystemID.toString()) }}</h6>
           <span class="tournament__player-price">

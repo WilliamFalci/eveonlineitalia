@@ -27,30 +27,30 @@
                     role="tabpanel" :aria-labelledby="`${content.id}-tab`">
                     <div class="video__card">
                         <div class="video-card-shape video-card-shape1">
-                            <NuxtImg src="/images/gallery/video3-card-shape1.png" alt="img" />
+                            <NuxtImg format="webp" src="/images/gallery/video3-card-shape1.png" alt="img" />
                         </div>
                         <div class="video-card-shape video-card-shape2">
-                            <NuxtImg src="/images/gallery/video3-card-shape2.png" alt="img" />
+                            <NuxtImg format="webp" src="/images/gallery/video3-card-shape2.png" alt="img" />
                         </div>
                         <div class="video-card-shape video-card-shape3">
-                            <NuxtImg src="/images/gallery/video3-card-shape3.png" alt="img" />
+                            <NuxtImg format="webp" src="/images/gallery/video3-card-shape3.png" alt="img" />
                         </div>
                         <div class="video-card-shape video-card-shape4">
-                            <NuxtImg src="/images/gallery/video3-card-shape4.png" alt="img" />
+                            <NuxtImg format="webp" src="/images/gallery/video3-card-shape4.png" alt="img" />
                         </div>
                         <div class="video-card-img">
-                            <NuxtImg :src="content.imgSrc" :alt="content.title" />
+                            <NuxtImg format="webp" :src="content.imgSrc" :alt="content.title" />
                         </div>
                         <nuxt-link to="/service-details" class="video-card-title">
                             <span class="icon">
                                 <i class="fas fa-link"></i>
                             </span>
                             <span class="video-card-title-shape video-card-title-shape2">
-                                <NuxtImg src="/images/gallery/video3-card-title-shape2.png" alt="img" />
+                                <NuxtImg format="webp" src="/images/gallery/video3-card-title-shape2.png" alt="img" />
                             </span>
                             <span class="title">
                                 <span class="video-card-title-shape video-card-title-shape1">
-                                    <NuxtImg src="/images/gallery/video3-card-title-shape1.png" alt="img" />
+                                    <NuxtImg format="webp" src="/images/gallery/video3-card-title-shape1.png" alt="img" />
                                 </span>
                                 {{ content.title }}
                             </span>

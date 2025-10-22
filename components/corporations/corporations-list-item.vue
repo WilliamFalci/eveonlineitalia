@@ -7,7 +7,7 @@
       <div class="tournament__list-content mt-2">
         <div class="tournament__list-thumb">
           <a :href="`/corporazione/${item.eve_corp_id}`">
-            <img
+            <NuxtImg format="webp"
               :src="item.corp_logo"
               alt="thumb"
             />
