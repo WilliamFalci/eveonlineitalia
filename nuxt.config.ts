@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'EVE Italia - Community Italiana di EVE Online',
+      htmlAttrs: {
+        lang: 'it',
+      },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [

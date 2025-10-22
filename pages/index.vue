@@ -37,5 +37,5 @@
 <script setup lang="ts">
 import { useSeoMeta } from 'nuxt/app';
 
-useSeoMeta({ title: "EVE Italia - Community Italiana di EVE Online", description: `EVE Italia - La community italiana di EVE Online. Partecipa alla community italiana di EVE, scambia strategie, condividi esperienze e unisciti al nostro Discord per vivere l'universo di EVE Online.` });
+useSeoMeta({ title: "EVE Italia - Community Italiana di EVE Online", description: `EVE Italia - La community italiana di EVE Online. Condividi strategie, esperienze e unisciti al nostro Discord per vivere l’universo di EVE!` });
 </script>

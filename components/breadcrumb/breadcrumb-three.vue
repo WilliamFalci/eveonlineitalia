@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-12">
             <div class="breadcrumb__content">
-              <h2 class="title">{{ title }}</h2>
+              <h1 class="title">{{ title }}</h1>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
