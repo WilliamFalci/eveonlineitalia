@@ -11,28 +11,49 @@ export default defineEventHandler(async (event) => {
 
 
   if (eveonline_news && eveonline_news.length > 0) {
+    console.log(eveonline_news![0].guid)
     // Riga precedente
     const { data: previous } = await serverSupabase
-      .from('posts')
+      .from('eveonline_news')
       .select('*')
-      .lt('guid', eveonline_news![0].guid)
-      .order('id', { ascending: false })
+      .neq('guid', eveonline_news![0].guid)
+      .order('pubDate', { ascending: false })
       .limit(1)
       .single()
 
     // Riga successiva
     const { data: next } = await serverSupabase
-      .from('posts')
+      .from('eveonline_news')
       .select('*')
-      .gt('guid', eveonline_news![0].id)
-      .order('id', { ascending: true })
+      .neq('guid', eveonline_news![0].id)
+      .order('pubDate', { ascending: true })
       .limit(1)
       .single()
 
+
+    console.log(next, previous)
+    let prevPost = null
+    if (previous){
+      prevPost= {
+        slug: previous.slug,
+        title_ita: previous.title_ita,
+        title_eng: previous.title_eng
+      }
+    }
+
+    let nextPost = null
+    if (next){
+      nextPost= {
+        slug: next.slug,
+        title_ita: next.title_ita,
+        title_eng: next.title_eng
+      }
+    }
+
     return {
       post: eveonline_news[0],
-      previousPost: previous || null,
-      nextPost: next || null
+      prevPost: prevPost || null,
+      nextPost: nextPost || null
     }
   }
 
