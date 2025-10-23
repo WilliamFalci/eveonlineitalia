@@ -1,31 +1,31 @@
 <template>
   <ul class="list-wrap d-flex flex-wrap justify-content-center" v-if="totPages">
     <li v-for="n in 5" :key="n">
-      <template v-if="n == n && currPage == n">
+      <template v-if="n == 1 && currPage == 1">
         <button to="#" class="page-numbers current"> {{n}} </button>
       </template>
 
-      <template v-else-if="n == 1 && currPage > 5">
+      <template v-else-if="n == 1 && currPage >= 2">
         <button to="#" class="page-numbers" @click="changePage(currPage - 1)"> < </button>
       </template>
 
-      <template v-else-if="n == 2 && currPage > 5">
+      <template v-else-if="n == 2 && currPage >= 2">
         <button to="#" class="page-numbers" @click="changePage(currPage - 1)"> {{currPage - 1}} </button>
       </template>
 
-      <template v-else-if="n == 3 && currPage > 5">
+      <template v-else-if="n == 3 && currPage > 1">
         <button to="#" class="page-numbers current"> {{currPage}} </button>
       </template>
 
-      <template v-else-if="n == 4 && currPage > 5">
+      <template v-else-if="n == 4 && currPage >= 2 && currPage < totPages">
         <button class="page-numbers" @click="changePage(currPage + 1)"> {{currPage + 1}} </button>
       </template>
 
-      <template v-else-if="n == 5 && totPages > 5">
+      <template v-else-if="n == 5 && totPages >= 5 && currPage < totPages">
         <button class="page-numbers" @click="changePage(currPage +1)"> > </button>
       </template>
 
-      <template v-else-if="n <= totPages">
+      <template v-else-if="n <= totPages && n > currPage">
         <button class="page-numbers" @click="changePage(n)"> {{n}} </button>
       </template>
 

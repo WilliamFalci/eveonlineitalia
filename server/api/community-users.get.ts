@@ -4,10 +4,10 @@ import { serverSupabase } from '../utils/supabase'
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
 
-  const take = query.take ?? 9
-  const page = query.page ?? 1
+  const take = Number(query.take) ?? 9
+  const page = Number(query.page) ?? 1
   const q = query.q ?? null
-  const queryTake = (page == 1) ? (Number(take) - 1) : ((Number(page) * Number(take)) - 1)
+  const queryTake = (page == 1) ? (Number(0)) : ((Number(page) * Number(take)) - 1)
   
   let _count = null
   let dataUsers = null
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
       .select('*')
       .ilike('char_name', `%${q.toString()}%`)
       .order('eve_online_id', { ascending: false })
-      .range(queryTake-8,queryTake)
+      .range(queryTake, queryTake + (take-1))
 
     dataUsers = eveonline_users
     _count = count
@@ -36,12 +36,11 @@ export default defineEventHandler(async (event) => {
       .from('eveonline_users')
       .select('*')
       .order('eve_online_id', { ascending: false })
-      .range(queryTake-8,queryTake)
+      .range(queryTake, queryTake + (take-1))
 
     dataUsers = eveonline_users
     _count = count
   }
-
 
   const totPages = Math.ceil(Number(_count) / Number(take))
 

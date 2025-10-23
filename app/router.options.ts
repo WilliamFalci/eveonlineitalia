@@ -1,8 +1,5 @@
 export default {
-  scrollBehavior(to: { hash: any }, from: any, savedPosition: any) {
-    if (savedPosition) {
-      return savedPosition
-    }
+  scrollBehavior(to, from, savedPosition) {
 
     if (to.hash) {
       return {
@@ -11,6 +8,7 @@ export default {
       }
     }
 
-    return { top: 0 }
+    if (to.path !== from.path) return { top: 0 }
+    return false
   }
 }

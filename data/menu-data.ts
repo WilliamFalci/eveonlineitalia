@@ -25,6 +25,11 @@ const menu_data: IMenuDataType[] = [
     title: "Giocatori",
     link: "/giocatori",
   },
+  {
+    id: 4,
+    title: "Blog",
+    link: "/blog"
+  }
 /*   {
     id: 2,
     title: "Discord",
