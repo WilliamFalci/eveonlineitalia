@@ -13,19 +13,22 @@ export default defineEventHandler(async (event) => {
   if (eveonline_news && eveonline_news.length > 0) {
     console.log(eveonline_news![0].guid)
     // Riga precedente
-    const { data: previous } = await serverSupabase
+    const { data: next } = await serverSupabase
       .from('eveonline_news')
       .select('*')
       .neq('guid', eveonline_news![0].guid)
+      .lte('pubDate', eveonline_news![0].pubDate)
       .order('pubDate', { ascending: false })
       .limit(1)
       .single()
 
     // Riga successiva
-    const { data: next } = await serverSupabase
+    const { data: previous } = await serverSupabase
       .from('eveonline_news')
       .select('*')
-      .neq('guid', eveonline_news![0].id)
+      .neq('guid', eveonline_news![0].guid)
+      .neq('guid', next.guid)
+      .gte('pubDate', eveonline_news![0].pubDate)
       .order('pubDate', { ascending: true })
       .limit(1)
       .single()
