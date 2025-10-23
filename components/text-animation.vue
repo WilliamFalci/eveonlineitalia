@@ -19,7 +19,6 @@ const { stop } = useIntersectionObserver(
   target,
   ([{ isIntersecting }], observerElement) => {
       targetIsVisible.value = isIntersecting;
-      console.log(isIntersecting)
       if (isIntersecting) {
         isView.value = true;
       }

@@ -59,9 +59,6 @@ export default defineEventHandler(async (event) => {
     prevPage: (Number(page) > 1) ? Number(page) +1 : null,
     nextPage: (Number(page) < totPages) ? Number(page) + 1 : null,
     totPages: Number(totPages)
-  }
-
-  console.log(result)
-  
+  }  
   return result
 });

@@ -11,7 +11,6 @@ export default defineEventHandler(async (event) => {
 
 
   if (eveonline_news && eveonline_news.length > 0) {
-    console.log(eveonline_news![0].guid)
     // Riga precedente
     const { data: next } = await serverSupabase
       .from('eveonline_news')
@@ -50,8 +49,6 @@ export default defineEventHandler(async (event) => {
       previous = _previous
     }
 
-
-    console.log(next, previous)
     let prevPost = null
     if (previous){
       prevPost= {

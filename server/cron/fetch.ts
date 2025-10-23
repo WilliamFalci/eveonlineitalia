@@ -4,7 +4,6 @@ import { serverSupabase } from '../utils/supabase'
 import { eveOnlineNewsQueue } from "../utils/queues";
 
 export async function fetchEveNews() {
-    console.log("Cronjob eseguito:", new Date());
     const parser = new Parser();
     const feed = await parser.parseURL("https://www.eveonline.com/rss");
 
@@ -43,6 +42,4 @@ export async function fetchEveNews() {
             eveOnlineNewsQueue.add({ guid: article.guid, textToTranslate: article.content, column: 'content_ita' }, { removeOnComplete: true, priority: 1 })
         }
     }
-
-    console.log('Cronjob completed')
 }

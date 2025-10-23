@@ -7,7 +7,6 @@ export function useVideoPopup() {
     if (typeof window !== 'undefined') {
       const videoOverlay = document.querySelector("#video-overlay");
       videoUrl.value = `https://www.youtube.com/embed/${videoId}`;
-      console.log('videoUrl.value',videoUrl.value,'video id',videoId);
       if (!iframeElement) {
         iframeElement = document.createElement("iframe");
         iframeElement.setAttribute("src", videoUrl.value);

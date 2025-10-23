@@ -40,7 +40,6 @@ const q = ref()
 
 const { data: members } = await useFetch(`/api/community-users?page=${page.value}&take=${take.value}`)
 totPages.value = (members.value as any)?.totPages
-console.log(totPages.value)
 list.value = members.value.elements
 
 const handleUpdateCurrPage = async (newValue: number) => {
