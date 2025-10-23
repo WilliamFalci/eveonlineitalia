@@ -22,6 +22,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     script.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`
     document.head.appendChild(script)
 
+    const scriptHrefs = document.createElement('script')
+    scriptHrefs.id = 'hrefs-script'
+    scriptHrefs.async = true
+    scriptHrefs.src = `https://analytics.ahrefs.com/analytics.js`
+    scriptHrefs.setAttribute('data-key','dhj5IAcEHRVuvqw6eH9Vzw')
+    document.head.appendChild(scriptHrefs)
+
     // Inizializza dataLayer
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
