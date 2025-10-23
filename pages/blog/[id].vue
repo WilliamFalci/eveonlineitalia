@@ -33,11 +33,11 @@ import { ref } from "vue";
 import { useFetch, useRoute, useSeoMeta } from "nuxt/app";
 import type { BlogPostTranslated } from "@/types/blog-type";
 
-useSeoMeta({ title: "EVE Online Italia - Blog" });
 const route = useRoute();
 const currentLang = ref('ita')
 const { data: news } = await useFetch(`/api/eve-news-by-slug?slug=${route.params.id}`)
 const blog = news.value as BlogPostTranslated
+useSeoMeta({ title: `${blog.post.title_ita} - EO Italia` });
 
 const handleUpdateCurrLang = async (newValue: string) => {
   currentLang.value = newValue

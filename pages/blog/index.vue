@@ -14,5 +14,7 @@
 </template>
 
 <script setup lang="ts">
-useSeoMeta({ title: "Giocatori Italiani della community EVE Online" });
+import { useSeoMeta } from "nuxt/app";
+
+useSeoMeta({ title: "EVE Online Italia - Blog" });
 </script>

@@ -14,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-useSeoMeta({ title: "Giocatori Italiani della community EVE Online" });
+useSeoMeta({ title: "Giocatori community EVE Online Italia" });
 </script>

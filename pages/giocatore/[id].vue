@@ -39,5 +39,5 @@ const {data: corp} = await useFetch(`https://esi.evetech.net/corporations/${char
 killStats.value = zkillboard.value
 corporation.value = corp.value
 
-useSeoMeta({ title: `${char.value.name} - Giocatore Italiano della Comunnity EVE Online` });
+useSeoMeta({ title: `${char.value.name} - Giocatore della Comunnity EVE Online Italia` });
 </script>
