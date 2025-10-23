@@ -12,7 +12,7 @@
               <nav class="tgmenu__nav">
                 <div class="logo">
                   <nuxt-link to="/">
-                    <NuxtImg src="/images/logo/logo.png" alt="Logo" />
+                    <NuxtImg format="webp" src="/images/logo/logo.png" alt="Logo" />
                   </nuxt-link>
                 </div>
                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">

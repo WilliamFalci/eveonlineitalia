@@ -4,7 +4,7 @@
       <div class="offCanvas__body">
         <div class="offCanvas__top" style="justify-content: center;">
           <div class="offCanvas__logo logo">
-            <NuxtImg src="/images/logo/logo.png" alt="Logo" />
+            <NuxtImg format="webp" src="/images/logo/logo.png" alt="Logo" />
           </div>
         </div>
         <div class="offCanvas__content">

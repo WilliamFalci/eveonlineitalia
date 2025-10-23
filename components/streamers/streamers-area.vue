@@ -13,7 +13,7 @@
             <SwiperSlide v-for="item in streamers_data" :key="item.id">
                 <div class="streamers__item">
                     <div class="streamers__thumb">
-                      <NuxtImg :src="item.img" alt="img" />
+                      <NuxtImg format="webp" :src="item.img" alt="img" />
                     </div>
                     <div class="streamers__content">
                       <h4 class="name">{{item.title}}</h4>

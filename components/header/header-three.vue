@@ -17,7 +17,7 @@
                                 <div class="tgmenu__action d-none d-md-block">
                                     <ul class="list-wrap">
                                         <li @click="handleOpenOffCanvas('/audio/click.wav')" class="side-toggle-icon">
-                                            <NuxtImg src="/images/logo/logo.png" alt="Logo"/>
+                                            <NuxtImg format="webp" src="/images/logo/logo.png" alt="Logo"/>
                                         </li>
                                     </ul>
                                 </div>

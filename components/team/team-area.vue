@@ -21,7 +21,7 @@
           >
             <div class="team__item">
               <div class="team__thumb">
-                <NuxtImg :src="t.img" alt="img" />
+                <NuxtImg format="webp" :src="t.img" alt="img" />
               </div>
               <div class="team__content">
                 <h4 class="name">

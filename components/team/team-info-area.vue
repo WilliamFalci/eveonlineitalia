@@ -6,7 +6,7 @@
                 <div class="team__info-wrap">
                     <div class="team__info-discord">
                         <div class="about__content-circle">
-                            <img src="/images/icons/circle02.svg" alt="img" />
+                            <NuxtImg format="webp" src="/images/icons/circle02.svg" alt="img" />
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
                                 <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
                                 <text>
@@ -25,7 +25,7 @@
                             <li v-if="props.value_1">
                                 <div class="team__info-item">
                                     <div class="team__info-icon">
-                                        <img :src="props.img" :alt="props.value_1" style="border-radius: 100%;"/>
+                                        <NuxtImg format="webp" :src="props.img" :alt="props.value_1" style="border-radius: 100%;"/>
                                     </div>
                                     <div class="team__info-content">
                                         <span class="sub">{{props.label_1}}</span>
