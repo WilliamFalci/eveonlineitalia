@@ -22,16 +22,33 @@ export default defineEventHandler(async (event) => {
       .limit(1)
       .single()
 
-    // Riga successiva
-    const { data: previous } = await serverSupabase
-      .from('eveonline_news')
-      .select('*')
-      .neq('guid', eveonline_news![0].guid)
-      .neq('guid', next.guid)
-      .gte('pubDate', eveonline_news![0].pubDate)
-      .order('pubDate', { ascending: true })
-      .limit(1)
-      .single()
+
+    let previous = null
+    if(next){
+      // Riga successiva
+      const { data: _previous } = await serverSupabase
+        .from('eveonline_news')
+        .select('*')
+        .neq('guid', eveonline_news![0].guid)
+        .neq('guid', next.guid)
+        .gte('pubDate', eveonline_news![0].pubDate)
+        .order('pubDate', { ascending: true })
+        .limit(1)
+        .single()
+
+      previous = _previous
+    }else{
+      const { data: _previous } = await serverSupabase
+        .from('eveonline_news')
+        .select('*')
+        .neq('guid', eveonline_news![0].guid)
+        .gte('pubDate', eveonline_news![0].pubDate)
+        .order('pubDate', { ascending: true })
+        .limit(1)
+        .single()
+
+      previous = _previous
+    }
 
 
     console.log(next, previous)
