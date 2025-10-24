@@ -42,7 +42,7 @@ const handleUpdateCurrLang = async (newValue: string) => {
   currentLang.value = newValue
 }
 
-const title = `${blog.post.title_ita} - EO Italia`
+const title = `${blog.post.title_ita} - Eve Online Italia`
 const description = stripHtmlTags(`${blog.post.content_ita.toString().substring(0,110)}...`)
 const image = '/images/logo/logo.png'
 const url = 'https://eveonlineitalia.it' + route.path
@@ -70,5 +70,4 @@ useHead({
     { name: 'twitter:image', content: image },
   ]
 })
-
 </script>
