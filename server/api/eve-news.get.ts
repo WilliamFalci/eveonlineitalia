@@ -8,12 +8,6 @@ export default defineEventHandler(async (event) => {
   const page = Number(query.page) ?? 1
   const q = query.q ?? null
   const queryTake = (page == 1) ? (Number(0)) : ((Number(page) * Number(take)) - 1)
-
-  const { data, count } = await serverSupabase
-    .from('eveonline_news')
-    .select('*', { count: 'exact', head: true })
-
-
   let _count = null
   let dataNews = null
   
@@ -35,7 +29,7 @@ export default defineEventHandler(async (event) => {
     _count = count
   }else{
     const { data, count } = await serverSupabase
-      .from('eveonline_users')
+      .from('eveonline_news')
       .select('*', { count: 'exact', head: true })
       
     let { data: eveonline_news, error } = await serverSupabase
@@ -54,9 +48,9 @@ export default defineEventHandler(async (event) => {
 
   const result = {
     elements: dataNews as IBlog[],
-    totalElements: count,
+    totalElements: _count,
     currPage: Number(page),
-    prevPage: (Number(page) > 1) ? Number(page) +1 : null,
+    prevPage: (Number(page) > 1) ? Number(page) - 1 : null,
     nextPage: (Number(page) < totPages) ? Number(page) + 1 : null,
     totPages: Number(totPages)
   }  

@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { useFetch, useRoute, useSeoMeta } from 'nuxt/app';
+import { useFetch, useRoute, useSeoMeta, useHead } from 'nuxt/app';
 import { ref } from 'vue';
 
 const route = useRoute();
@@ -82,8 +82,32 @@ killStats.value = zkillboard.value
 ceo.value = ceoData.value
 propaganda.value = _propaganda.value
 
+const title = `[${killStats.value.info.ticker}] ${killStats.value.info.name} - EVE Online Italia`
+const description = `Scopri [${killStats.value.info.ticker}] ${killStats.value.info.name} su EVE Italia: una corporazione italiana attiva nella Community Italiana EVE Online, con statistiche aggiornate, attività e opportunità di reclutamento per nuovi membri.`
+const image = `https://images.evetech.net/corporations/${route.params.id}/logo?size=512`
+const url = 'https://eveonlineitalia.it' + route.path
+
 useSeoMeta({ 
-  title: `[${killStats.value.info.ticker}] ${killStats.value.info.name} - EVE Online Italia`,
-  description: `Scopri [${killStats.value.info.ticker}] ${killStats.value.info.name} su EVE Italia: una corporazione italiana attiva nella Community Italiana EVE Online, con statistiche aggiornate, attività e opportunità di reclutamento per nuovi membri.`
+  title: title,
+  description: description
 });
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: url
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
 </script>

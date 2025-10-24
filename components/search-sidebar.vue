@@ -17,14 +17,18 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute, useRouter } from 'nuxt/app';
 import { ref } from 'vue';
 
-const query = ref()
+const route = useRoute();
+const router = useRouter();
+
+const query = ref((route.query.q) ? route.query.q.toString() : null)
 
 const props = defineProps<{tPlaceholder:string}>()
 
 const emit = defineEmits<{
-  (e: 'update-q', value: string): void
+  (e: 'update-q', value: string|null): void
 }>()
 
 const changeQ = () => {

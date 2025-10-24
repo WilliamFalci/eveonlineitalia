@@ -56,10 +56,35 @@
 </template>
 
 <script setup lang="ts">
-import { useSeoMeta } from 'nuxt/app';
+import { useSeoMeta, useHead } from 'nuxt/app';
+
+const title = `Corporazioni - EVE Online Italia`
+const description = `Scopri le corporazioni italiane su EVE Italia: uno spazio dedicato ai CEO della Community Italiana EVE Online per promuovere la propria corporazione, mostrare statistiche e facilitare il reclutamento di nuovi membri`
+const image = `/images/logo/logo.png`
+const url = 'https://eveonlineitalia.it/corporazioni'
 
 useSeoMeta({ 
-  title: "Corporazioni - EVE Online Italia",
-  description: "Scopri le corporazioni italiane su EVE Italia: uno spazio dedicato ai CEO della Community Italiana EVE Online per promuovere la propria corporazione, mostrare statistiche e facilitare il reclutamento di nuovi membri"
+  title: title,
+  description: description
 });
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: url
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
+
 </script>

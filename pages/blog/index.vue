@@ -44,10 +44,35 @@
 </template>
 
 <script setup lang="ts">
-import { useSeoMeta } from "nuxt/app";
+import { useHead, useSeoMeta, useRoute } from "nuxt/app";
 
-useSeoMeta({ 
-  title: "EVE Online Italia - Blog",
-  description: "Scopri il Blog di EVE Italia, la fonte ufficiale per tutte le news su EVE Online Italia. Aggiornamenti, eventi e comunicati CCP disponibili in italiano e in lingua originale per la Community Italiana EVE Online."
+const route = useRoute()
+const title = 'EVE Online Italia - Blog'
+const description = 'Scopri il Blog di EVE Italia, la fonte ufficiale per tutte le news su EVE Online Italia. Aggiornamenti, eventi e comunicati CCP disponibili in italiano e in lingua originale per la Community Italiana EVE Online.'
+const image = '/images/logo/logo.png'
+const url = 'https://eveonlineitalia.it' + route.path
+
+useSeoMeta({
+  title: title,
+  description: description
 });
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: (!route.query.page || (route.query.page == '1' && route.query.take == '3')) ? 'https://eveonlineitalia.it/blog' : `https://eveonlineitalia.it/blog?page=${route.query.page}&take=${route.query.take}${(route.query.q) ? `&q=${route.query.q}` : ''}`
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
 </script>

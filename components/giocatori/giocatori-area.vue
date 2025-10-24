@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="pagination__wrap" v-if="totPages">
-                        <ui-pagination :totPages="totPages" :currPage="page" @update-curr-page="handleUpdateCurrPage" />
+                        <ui-pagination :totPages="totPages" :currPage="page" url="/giocatori" :take="take" :q="q" />
                     </div>
                 </div>
             </div>
@@ -34,30 +34,13 @@ const route = useRoute();
 const router = useRouter();
 const page = ref((route.query.page && Number(route.query.page) > 0) ? Number(route.query.page) : 1)
 const take = ref((route.query.take && Number(route.query.take) > 0) ? Number(route.query.take) : 9)
+const q = ref((route.query.q) ? route.query.q : null)
 const totPages = ref()
 const list = ref()
-const q = ref()
 
 const { data: members } = await useFetch(`/api/community-users?page=${page.value}&take=${take.value}`)
 totPages.value = (members.value as any)?.totPages
 list.value = members.value.elements
-
-const handleUpdateCurrPage = async (newValue: number) => {
-    page.value = newValue
-    let url = `/api/community-users?page=${page.value}&take=${take.value}`
-    if (q.value) url = `${url}&q=${q.value}`
-    const { data: members } = await useFetch(url)
-    router.push({
-        path: route.path,
-        query: { ...route.query, page: page.value, take: take.value }
-    })
-    list.value = (members.value as any)?.elements as eveMember[]
-    totPages.value = (members.value as any)?.totPages
-}
-
-if (route.query.page && Number(route.query.page) > Number(totPages.value)){
-    await handleUpdateCurrPage(totPages.value)
-}
 
 const handleUpdateQ = async (newValue: string) => {
     page.value = 1

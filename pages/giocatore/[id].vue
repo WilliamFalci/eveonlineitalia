@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { useFetch, useRoute, useSeoMeta } from 'nuxt/app';
+import { useFetch, useRoute, useSeoMeta, useHead } from 'nuxt/app';
 import { ref } from 'vue';
 
 const route = useRoute();
@@ -79,8 +79,33 @@ const { data: corp } = await useFetch(`https://esi.evetech.net/corporations/${ch
 killStats.value = zkillboard.value
 corporation.value = corp.value
 
+const title = `${char.value.name} - EVE Online Italia`
+const description = `Scopri il profilo di ${char.value.name} nella Community Italiana EVE Online su EVE Italia. Visualizza le statistiche e l’esperienza di gioco in EVE Online Italia.`
+const image = `https://images.evetech.net/characters/${route.params.id}/portrait?size=512`
+const url = 'https://eveonlineitalia.it' + route.path
+
 useSeoMeta({ 
-  title: `${char.value.name} - EVE Online Italia`,
-  description: `Scopri il profilo di ${char.value.name} nella Community Italiana EVE Online su EVE Italia. Visualizza le statistiche e l’esperienza di gioco in EVE Online Italia.`
+  title: title,
+  description: description
 });
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: url
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
+
 </script>

@@ -30,16 +30,45 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useFetch, useRoute, useSeoMeta } from "nuxt/app";
+import { useFetch, useRoute, useSeoMeta, useHead } from "nuxt/app";
 import type { BlogPostTranslated } from "@/types/blog-type";
+import { stripHtmlTags } from "../../utils/utils";
 
 const route = useRoute();
 const currentLang = ref('ita')
 const { data: news } = await useFetch(`/api/eve-news-by-slug?slug=${route.params.id}`)
 const blog = news.value as BlogPostTranslated
-useSeoMeta({ title: `${blog.post.title_ita} - EO Italia` });
-
 const handleUpdateCurrLang = async (newValue: string) => {
   currentLang.value = newValue
 }
+
+const title = `${blog.post.title_ita} - EO Italia`
+const description = stripHtmlTags(`${blog.post.content_ita.toString().substring(0,155)}...`)
+const image = '/images/logo/logo.png'
+const url = 'https://eveonlineitalia.it' + route.path
+
+useSeoMeta({ 
+  title: title,
+  description: description
+});
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: url
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
+
 </script>

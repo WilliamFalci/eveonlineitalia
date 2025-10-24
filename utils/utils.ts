@@ -20,3 +20,7 @@ export function formatDate(dateStr) {
     year: 'numeric'    // "2025"
   }).format(new Date(dateStr))
 }
+
+export function stripHtmlTags(input: string): string {
+  return input.replace(/<[^>]*>/g, '');
+}

@@ -61,7 +61,7 @@ export default defineEventHandler(async (event) => {
     elements: result as eveMember[],
     totalElements: _count,
     currPage: Number(page),
-    prevPage: (Number(page) > 1) ? Number(page) + 1 : null,
+    prevPage: (Number(page) > 1) ? Number(page) - 1 : null,
     nextPage: (Number(page) < totPages) ? Number(page) + 1 : null,
     totPages: Number(totPages)
   }

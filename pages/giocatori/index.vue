@@ -42,21 +42,49 @@
 
       <p>Pubblicare le tue statistiche è semplice e immediato. Basta registrarsi nella nostra piattaforma, inserire i
         dettagli del proprio profilo di gioco e aggiornare le informazioni periodicamente per restare visibile nella
-        <strong>Community Italiana EVE Online</strong>.</p>
+        <strong>Community Italiana EVE Online</strong>.
+      </p>
 
       <p>Unisciti a <strong>EVE Italia</strong> e fai crescere la tua reputazione tra i giocatori italiani di
         <strong>EVE Online</strong>. Mostra le tue abilità, confrontati con altri piloti e diventa parte attiva della
-        nostra community!</p>
+        nostra community!
+      </p>
 
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useSeoMeta } from 'nuxt/app';
+import { useHead, useSeoMeta, useRoute } from 'nuxt/app';
 
-useSeoMeta({ 
-  title: "Giocatori – EVE Online Italia" ,
-  description: "Scopri i profili dei membri della Community Italiana EVE Online su EVE Italia. Mostra le tue statistiche, confrontati con altri giocatori e valorizza la tua esperienza in EVE Online Italia."
+const route = useRoute()
+const title = 'Giocatori – EVE Online Italia'
+const description = 'Scopri i profili dei membri della Community Italiana EVE Online su EVE Italia. Mostra le tue statistiche, confrontati con altri giocatori e valorizza la tua esperienza in EVE Online Italia.'
+const image = '/images/logo/logo.png'
+const url = 'https://eveonlineitalia.it' + route.path
+
+useSeoMeta({
+  title: title,
+  description: description
 });
+
+useHead({
+  link: [{
+    rel: 'canonical',
+    href: (!route.query.page || (route.query.page == '1' && route.query.take == '3')) ? 'https://eveonlineitalia.it/giocatori' : `https://eveonlineitalia.it/giocatori?page=${route.query.page}&take=${route.query.take}${(route.query.q) ? `&q=${route.query.q}` : ''}`
+  }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: url },
+    { property: 'og:image', content: image },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: image },
+  ]
+})
+
 </script>

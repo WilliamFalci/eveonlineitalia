@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-xl-6 col-lg-7">
             <div class="breadcrumb__content">
-              <h1 class="title">{{ title }}</h1>
+              <span class="title">{{ title }}</span>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
