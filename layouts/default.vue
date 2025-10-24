@@ -23,6 +23,14 @@ const gtmId = useRuntimeConfig().public.gtmId
 </script>
 
 <style>
+.seo-text > h1 , .seo-text > h2, .seo-text > article > h2 {
+  font-size: 1rem;
+}
+
+.seo-text > p , .seo-text > ul > li {
+  font-size: 0.9rem;
+}
+
 .color-primary {
   color: var(--tg-theme-primary);
 }

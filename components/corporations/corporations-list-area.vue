@@ -1,6 +1,6 @@
 <template>
   <section
-      class="tournament__list-area section-pb-120 section-pt-120">
+      class="tournament__list-area section-pb-120 section-pt-80">
       <div class="container">
         <div class="tournament__wrapper">
           <div class="row align-items-end mb-60">
