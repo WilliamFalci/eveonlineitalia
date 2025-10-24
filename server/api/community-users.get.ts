@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   const take = Number(query.take) ?? 9
   const page = Number(query.page) ?? 1
   const q = query.q ?? null
-  const queryTake = (page == 1) ? (Number(0)) : ((Number(page) * Number(take)) - 1)
+  const queryTake = (page == 1) ? 0 : ((Number(page-1) * Number(take)))
   
   let _count = null
   let dataUsers = null
