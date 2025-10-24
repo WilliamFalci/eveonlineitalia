@@ -83,7 +83,7 @@ ceo.value = ceoData.value
 propaganda.value = _propaganda.value
 
 const title = `[${killStats.value.info.ticker}] ${killStats.value.info.name} - EVE Online Italia`
-const description = `Scopri [${killStats.value.info.ticker}] ${killStats.value.info.name} su EVE Italia: una corporazione italiana attiva nella Community Italiana EVE Online, con statistiche aggiornate, attività e opportunità di reclutamento per nuovi membri.`
+const description = `Scopri [${killStats.value.info.ticker}] ${killStats.value.info.name} su EVE Online Italia: una corporazione italiana attiva, con statistiche aggiornate.`
 const image = `https://images.evetech.net/corporations/${route.params.id}/logo?size=512`
 const url = 'https://eveonlineitalia.it' + route.path
 

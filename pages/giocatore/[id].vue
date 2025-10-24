@@ -80,7 +80,7 @@ killStats.value = zkillboard.value
 corporation.value = corp.value
 
 const title = `${char.value.name} - EVE Online Italia`
-const description = `Scopri il profilo di ${char.value.name} nella Community Italiana EVE Online su EVE Italia. Visualizza le statistiche e l’esperienza di gioco in EVE Online Italia.`
+const description = `Scopri ${char.value.name} su EVE Online Italia. Visualizza le statistiche e l’esperienza di gioco in EVE Online Italia.`
 const image = `https://images.evetech.net/characters/${route.params.id}/portrait?size=512`
 const url = 'https://eveonlineitalia.it' + route.path
 

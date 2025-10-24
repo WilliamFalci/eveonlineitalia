@@ -49,7 +49,7 @@ import { useHead, useSeoMeta, useRoute } from "nuxt/app";
 
 const route = useRoute()
 const title = 'EVE Online Italia - Blog'
-const description = 'Scopri il Blog di EVE Italia, la fonte ufficiale per tutte le news su EVE Online Italia. Aggiornamenti, eventi e comunicati CCP disponibili in italiano e in lingua originale per la Community Italiana EVE Online.'
+const description = 'Scopri il Blog di EVE Italia, per tutte le news su EVE Online. Aggiornamenti, eventi e comunicati CCP disponibili in italiano e in lingua originale per la Community EVE Online Italia.'
 const image = '/images/logo/logo.png'
 const url = 'https://eveonlineitalia.it' + route.path
 

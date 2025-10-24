@@ -19,13 +19,13 @@ export default defineSitemapEventHandler(async() => {
   if (eveonline_news && eveonline_news?.length > 0){
     news = eveonline_news?.map((a:any) => `/blog/${a.slug}`)
     const totNews = eveonline_news.length
-    blog = Array.from({ length: (Math.ceil(totNews/3)) }, (_, i) => `/blog/?page=${i+1}`);
+    blog = Array.from({ length: (Math.ceil(totNews/3)) }, (_, i) => `/blog/?page=${i+1}&take=3`);
   }
 
   if (eveonline_users && eveonline_users?.length > 0){
     giocatori = eveonline_users?.map((a:any) => `/giocatore/${a.eve_online_id}`)
     const totUsers = eveonline_users.length
-    giocatoriSearch = Array.from({ length: (Math.ceil(totUsers/9)) }, (_, i) => `/giocatori/?page=${i+1}`);
+    giocatoriSearch = Array.from({ length: (Math.ceil(totUsers/9)) }, (_, i) => `/giocatori/?page=${i+1}&take=9`);
   }
 
   if (eveonline_users && eveonline_users?.length > 0)
