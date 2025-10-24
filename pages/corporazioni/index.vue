@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- breadcrumb area start -->
-    <breadcrumb-one title="Corporazioni" subtitle="Corporazioni" bg="/images/bg/breadcrumb_bg03.jpg"></breadcrumb-one>
+    <breadcrumb-one title="CORPORAZIONI" subtitle="Corporazioni" bg="/images/bg/breadcrumb_bg03.jpg"></breadcrumb-one>
     <!-- breadcrumb area end -->
 
     <!-- tournament list area start  -->
