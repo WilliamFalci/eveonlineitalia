@@ -48,11 +48,6 @@ import { ref } from "vue";
 import { useHead, useSeoMeta, useRoute } from "nuxt/app";
 
 const route = useRoute()
-
-const page = ref((route.query.page && Number(route.query.page) > 0) ? Number(route.query.page) : 1)
-const take = ref((route.query.take && Number(route.query.take) > 0) ? Number(route.query.take) : 9)
-const q = ref((route.query.q) ? route.query.q : null)
-
 const title = 'EVE Online Italia - Blog'
 const description = 'Scopri il Blog di EVE Italia, la fonte ufficiale per tutte le news su EVE Online Italia. Aggiornamenti, eventi e comunicati CCP disponibili in italiano e in lingua originale per la Community Italiana EVE Online.'
 const image = '/images/logo/logo.png'
@@ -64,10 +59,12 @@ useSeoMeta({
 });
 
 useHead({
-  link: [{
-    rel: 'canonical',
-    href: (!route.query.page || (route.query.page == '1')) ? 'https://eveonlineitalia.it/blog' : `https://eveonlineitalia.it/blog?page=${page.value}&take=${take.value}${(q.value) ? `&q=${q.value}` : ''}`
-  }],
+  ...((!route.query.page || (route.query.page == '1')) && {
+    link: [{
+      rel: 'canonical',
+      href: 'https://eveonlineitalia.it/blog'
+    }]
+  }),
   meta: [
     { name: 'description', content: description },
     { property: 'og:title', content: title },
