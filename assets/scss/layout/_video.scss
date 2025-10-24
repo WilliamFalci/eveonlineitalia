@@ -325,8 +325,12 @@
     .video__thumb {
         border: 10px solid #1F222D;
         box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.53);
+        width: 1270px;
+        height: 720px;
         img {
-            width: 100%;
+            width: 1270px;
+            height: 700px;
+            object-fit: cover;
         }
     }
     .video-play-btn {
