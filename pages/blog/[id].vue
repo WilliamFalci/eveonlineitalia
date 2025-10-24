@@ -2,7 +2,7 @@
   <div>
     <!-- breadcrumb area start -->
     <breadcrumb-three :title="(currentLang == 'ita') ? blog.post.title_ita : blog.post.title_eng"
-      :subtitle="blog.post.author"></breadcrumb-three>
+      :subtitle="blog.post.author" :type="true"></breadcrumb-three>
     <!-- breadcrumb area end -->
 
     <!-- blog details area start -->
@@ -43,7 +43,7 @@ const handleUpdateCurrLang = async (newValue: string) => {
 }
 
 const title = `${blog.post.title_ita} - EO Italia`
-const description = stripHtmlTags(`${blog.post.content_ita.toString().substring(0,155)}...`)
+const description = stripHtmlTags(`${blog.post.content_ita.toString().substring(0,110)}...`)
 const image = '/images/logo/logo.png'
 const url = 'https://eveonlineitalia.it' + route.path
 

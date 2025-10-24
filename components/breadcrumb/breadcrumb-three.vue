@@ -8,7 +8,8 @@
         <div class="row">
           <div class="col-12">
             <div class="breadcrumb__content">
-              <span class="title">{{ title }}</span>
+              <h1 v-if="type" class="title">{{ title }}</h1>
+              <span v-else class="title">{{ title }}</span>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -31,5 +32,6 @@
 defineProps<{
   title: string;
   subtitle: string;
+  type?:boolean
 }>();
 </script>
