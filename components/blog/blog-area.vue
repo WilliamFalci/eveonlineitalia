@@ -14,7 +14,7 @@
 
         <div class="pagination__wrap" v-if="totPages">
           <!-- pagination start -->
-          <ui-pagination :totPages="totPages" :currPage="page" @update-curr-page="handleUpdateCurrPage"/>
+          <ui-pagination :totPages="totPages" :currPage="page" :take="take" />
           <!-- pagination end -->
         </div>
       </div>

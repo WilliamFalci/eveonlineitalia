@@ -36,7 +36,5 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits } from 'vue'
-
 defineProps<{totPages:number, currPage:number, url:string, take:number, q:string|null}>()
 </script>
