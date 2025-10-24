@@ -30,11 +30,11 @@
 
 <script setup lang="ts">
 defineProps<{
-  label_1: string;
-  value_1: string;
-  avg: string;
-  label_2: string;
+  label_1?: string;
+  value_1?: string;
+  avg?: string;
+  label_2?: string;
   value_2: string;
-  delay: string;
+  delay?: string;
 }>();
 </script>

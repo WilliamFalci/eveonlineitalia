@@ -6,7 +6,7 @@
     <!-- breadcrumb area end -->
 
     <!-- team info area start -->
-    <team-info-area :img="`https://images.evetech.net/corporations/${char.corporationID}/logo?size=128`"
+    <team-info-area :img="`https://images.evetech.net/corporations/${char.corporation_id}/logo?size=128`"
       label_1="Corporazione" :value_1="corporation.name"></team-info-area>
     <!-- team info area end -->
 
