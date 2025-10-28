@@ -1,10 +1,12 @@
 <template>
-  <button class="scroll__top scroll-to-target" data-target="html" id="scroll-top" name="scroll-top">
+  <button class="scroll__top scroll-to-target" data-target="html" aria-label="scroll-top" name="scroll-top">
     <i class="flaticon-right-arrow"></i>
   </button>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 onMounted(() => {
   const result = document.querySelector('.scroll__top') as HTMLElement;
   if (result) {

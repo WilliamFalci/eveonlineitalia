@@ -13,7 +13,7 @@
         <div class="tgmobile__search">
           <form action="#">
             <input type="text" placeholder="Search here..." />
-            <button name="search" id="search">
+            <button name="search" aria-label="search">
               <i class="flaticon-loupe"></i>
             </button>
           </form>
@@ -24,7 +24,7 @@
         <div class="social-links">
           <ul class="list-wrap">
             <li v-for="(s, i) in social_data" :key="i">
-              <nuxt-link :to="s.link" target="_blank">
+              <nuxt-link :to="s.link" target="_blank" :aria-label="s.arialabel">
                 <i :class="s.icon"></i>
               </nuxt-link>
             </li>
