@@ -1,6 +1,6 @@
 <template>
     <section class="match__result-area">
-        <div class="match__result-bg" style="background-image:url(/images/bg/result_bg.png)"></div>
+        <div class="match__result-bg" style="background-image:url(/images/bg/result_bg.webp)"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">

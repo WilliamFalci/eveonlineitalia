@@ -1,6 +1,8 @@
 <template>
   <div>
-    <CookieConsentBanner />
+    <ClientOnly>
+      <CookieConsentBanner />
+    </ClientOnly>
     <header-three></header-three>
     <main class="main--area">
       <slot />

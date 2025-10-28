@@ -2,7 +2,7 @@
   <section class="banner__area banner__padding">
     <div
       class="banner__bg tg-jarallax"
-      style="background-image: url(/images/slider/banner_bg.png)"
+      style="background-image: url(/images/slider/banner_bg.webp)"
     ></div>
     <div class="container custom-container">
       <div class="row justify-content-center">
