@@ -15,7 +15,7 @@
               ITALIA
             </p>
             <div class="banner__btn d-flex justify-content-center wow bounceInLeft" data-wow-delay=".6s">
-              <a href="https://discord.gg/t7ypApFQ7v" target="_blank" class="tg-btn-3 tg-svg mx-auto">
+              <a href="https://discord.gg/t7ypApFQ7v" aria-label="EVE Online Italia Discord" target="_blank" class="tg-btn-3 tg-svg mx-auto">
                 <svg-animate-icon
                   icon="/images/icons/shape.svg"
                   id="svg-1"

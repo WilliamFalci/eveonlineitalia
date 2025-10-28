@@ -61,7 +61,7 @@
                             condividere esperienze e ricevere supporto immediato. Qualunque sia il tuo obiettivo –
                             esplorare, commerciare o combattere – qui troverai compagni pronti a partire con te.
                         </p>
-                        <p><a href="https://discord.gg/t7ypApFQ7v" target="_blank"><strong>👉 Entra ora nel Discord di
+                        <p><a href="https://discord.gg/t7ypApFQ7v" aria-label="EVE Online Italia Discord" target="_blank"><strong>👉 Entra ora nel Discord di
                                     EVE Italia</strong></a></p>
                     </section>
 

@@ -17,7 +17,7 @@
                             </div>
                             <div class="team__info-discord-info">
                                 <span class="sub">ENTRA NEL SERVER</span>
-                                <h5 class="title"><nuxt-link to="https://discord.gg/t7ypApFQ7v"
+                                <h5 class="title"><nuxt-link to="https://discord.gg/t7ypApFQ7v" aria-label="EVE Online Italia Discord"
                                         target="_blank">DISCORD</nuxt-link></h5>
                             </div>
                         </div>

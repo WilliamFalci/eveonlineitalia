@@ -18,7 +18,7 @@
             <p>Vuoi supportare questo progetto?</p>
             <ul class="offCanvas__contact-list list-wrap">
               <li>
-                Entra nel sever <nuxt-link to="https://discord.gg/t7ypApFQ7v" target="_blank">DISCORD</nuxt-link>
+                Entra nel sever <nuxt-link to="https://discord.gg/t7ypApFQ7v" aria-label="EVE Online Italia Discord" target="_blank">DISCORD</nuxt-link>
               </li>
             </ul>
             <br/>
