@@ -43,7 +43,7 @@ const handleUpdateCurrLang = async (newValue: string) => {
 }
 
 const title = `${blog.post.title_ita} - Eve Online Italia`
-const description = stripHtmlTags(`${blog.post.content_ita.toString().substring(0,110)}...`)
+const description = ottimizzaTestoConKeywords(stripHtmlTags(`${blog.post.content_ita.toString().substring(0,110)}...`))
 const image = '/images/logo/logo.png'
 const url = 'https://eveonlineitalia.it' + route.path
 

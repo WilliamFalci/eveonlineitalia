@@ -59,7 +59,7 @@
 import { useSeoMeta, useHead } from 'nuxt/app';
 
 const title = `Corporazioni - EVE Online Italia`
-const description = `Scopri le corporazioni italiane su EVE Italia: uno spazio dedicato ai CEO della Community Italiana EVE Online per promuovere la propria corporazione, mostrare statistiche e facilitare il reclutamento di nuovi membri`
+const description = `Scopri le corporazioni italiane su EVE Italia: spazio per la Community EVE Online Italia dove i CEO promuovono, mostrano statistiche e reclutano membri.`
 const image = `/images/logo/logo.png`
 const url = 'https://eveonlineitalia.it/corporazioni'
 

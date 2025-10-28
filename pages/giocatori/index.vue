@@ -59,7 +59,7 @@ import { useHead, useSeoMeta, useRoute } from 'nuxt/app';
 
 const route = useRoute()
 const title = 'Giocatori – EVE Online Italia'
-const description = 'Scopri i profili dei membri della Community Italiana EVE Online su EVE Italia. Mostra le tue statistiche, confrontati con altri giocatori di in EVE Online Italia.'
+const description = 'Scopri i profili dei membri della Community EVE Online Italia su EVE Italia. Mostra le tue statistiche e confrontati con altri giocatori italiani.'
 const image = '/images/logo/logo.png'
 const url = 'https://eveonlineitalia.it' + route.path
 

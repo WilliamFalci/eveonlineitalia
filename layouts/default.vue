@@ -10,11 +10,13 @@
     <footer-two></footer-two>
     <back-to-top></back-to-top>
   </div>
-  <!-- Noscript fallback per GTM -->
-  <noscript v-if="consent === 'accepted'">
-    <iframe :src="`https://www.googletagmanager.com/ns.html?id=${gtmId}`" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  <ClientOnly>
+    <!-- Noscript fallback per GTM -->
+    <noscript v-if="consent === 'accepted'">
+      <iframe :src="`https://www.googletagmanager.com/ns.html?id=${gtmId}`" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">

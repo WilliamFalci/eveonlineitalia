@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 onMounted(() => {
   const result = document.querySelector('.scroll__top') as HTMLElement;
   if (result) {
