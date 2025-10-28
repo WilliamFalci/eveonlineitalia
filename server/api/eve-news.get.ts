@@ -17,11 +17,15 @@ export default cachedEventHandler(async (event) => {
       .from('eveonline_news')
       .select('*', { count: 'exact', head: true })
       .ilike('title_ita', `%${q.toString()}%`)
+      .not('title_ita', 'is', null)      // esclude i null
+      .neq('title_ita', '')              // esclude le stringhe vuote
 
     let { data: eveonline_news, error } = await serverSupabase
       .from('eveonline_news')
       .select('*')
       .ilike('title_ita', `%${q.toString()}%`)
+      .not('title_ita', 'is', null)      // esclude i null
+      .neq('title_ita', '')              // esclude le stringhe vuote
       .order('pubDate', { ascending: false })
       .order('guid', { ascending: false })
       .range(queryTake, queryTake + (take-1))
@@ -32,10 +36,14 @@ export default cachedEventHandler(async (event) => {
     const { data, count } = await serverSupabase
       .from('eveonline_news')
       .select('*', { count: 'exact', head: true })
+      .not('title_ita', 'is', null)      // esclude i null
+      .neq('title_ita', '')              // esclude le stringhe vuote
       
     let { data: eveonline_news, error } = await serverSupabase
       .from('eveonline_news')
       .select('*')
+      .not('title_ita', 'is', null)      // esclude i null
+      .neq('title_ita', '')              // esclude le stringhe vuote
       .order('pubDate', { ascending: false })
       .order('guid', { ascending: false })
       .range(queryTake, queryTake + (take-1))
