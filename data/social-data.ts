@@ -4,6 +4,7 @@ type ISocial = {
   link: string;
   icon: string;
   title: string;
+  arialabel: string;
 }
 
 const social_data: ISocial[] = [
@@ -11,7 +12,8 @@ const social_data: ISocial[] = [
     id: 1,
     link: 'https://discord.gg/t7ypApFQ7v',
     icon: 'flaticon-discord',
-    title: 'discord'
+    title: 'discord',
+    arialabel: 'EVE Online Italia Discord Server'
   }
 ]
 

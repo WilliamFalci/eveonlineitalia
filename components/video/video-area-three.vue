@@ -4,7 +4,7 @@
             <div class="row justify-content-center justify-content-center">
                 <div class="col-lg-auto">
                     <div class="section__title mb-60 text-center title-shape-none">
-                        <h6 class="sub-title2">Dalla community</h6>
+                        <span class="sub-title2">Dalla community</span>
                         <h3 class="title2">I NOSTRI ULTIMI VIDEO</h3>
                     </div>
                 </div>
