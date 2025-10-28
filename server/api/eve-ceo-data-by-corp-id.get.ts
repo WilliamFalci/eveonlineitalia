@@ -1,6 +1,6 @@
 import { serverSupabase } from '../utils/supabase'
 
-export default defineEventHandler(async (event) => {
+export default cachedEventHandler(async (event) => {
     const query = getQuery(event)
     const eve_corp_id = query.eve_corp_id 
 
@@ -11,4 +11,7 @@ export default defineEventHandler(async (event) => {
     .or('isCeo.eq.true, isWingDirector.eq.true')
 
   return result![0] ?? null
+}, {
+  maxAge: 60 * 60 * 24 * 7, // 1 settimana
+  name: 'eve-ceo-data-by-corp-id'
 });

@@ -6,31 +6,13 @@ type ISocial = {
   title: string;
 }
 
-const social_data:ISocial[] = [
+const social_data: ISocial[] = [
   {
-    id:1,
-    link:'https://www.facebook.com/',
-    icon:'fab fa-facebook-f',
-    title:'Facebook'
-  },
-  {
-    id:2,
-    link:'https://twitter.com/',
-    icon:'fab fa-twitter',
-    title:'Twitter'
-  },
-  {
-    id:3,
-    link:'https://www.linkedin.com/',
-    icon:'fab fa-linkedin-in',
-    title:'Linkedin'
-  },
-  {
-    id:4,
-    link:'https://www.youtube.com/',
-    icon:'fab fa-youtube',
-    title:'Youtube'
-  },
+    id: 1,
+    link: 'https://discord.gg/t7ypApFQ7v',
+    icon: 'flaticon-discord',
+    title: 'discord'
+  }
 ]
 
 export default social_data;

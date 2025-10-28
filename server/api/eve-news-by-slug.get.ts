@@ -1,6 +1,6 @@
 import { serverSupabase } from '../utils/supabase'
 
-export default defineEventHandler(async (event) => {
+export default cachedEventHandler(async (event) => {
   const query = getQuery(event)
   const slug = query.slug
 
@@ -76,4 +76,7 @@ export default defineEventHandler(async (event) => {
 
 
   return null
+}, {
+  maxAge: 60 * 60 * 24 * 365, // 1 anno
+  name: 'eve-news-by-slug'
 });

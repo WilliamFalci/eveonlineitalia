@@ -7,10 +7,10 @@
         </p>
 
         <div class="row justify-content-center gap-2">
-            <button @click="reject" class="buttonDeclined d-flex">
+            <button @click="reject" class="buttonDeclined d-flex" name="reject-cookie">
                 Rifiuta
             </button>
-            <button @click="accept" class="buttonAccepted d-flex">
+            <button @click="accept" class="buttonAccepted d-flex" name="accept-cookie">
                 Accetta
             </button>
         </div>

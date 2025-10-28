@@ -36,5 +36,5 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{totPages:number, currPage:number, url:string, take:number, q:string|null}>()
+defineProps<{totPages:number, currPage:number, url:string, take:number, q?:string|null}>()
 </script>

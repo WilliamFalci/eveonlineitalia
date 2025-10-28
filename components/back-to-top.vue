@@ -1,5 +1,5 @@
 <template>
-  <button class="scroll__top scroll-to-target" data-target="html">
+  <button class="scroll__top scroll-to-target" data-target="html" name="scroll-top">
     <i class="flaticon-right-arrow"></i>
   </button>
 </template>

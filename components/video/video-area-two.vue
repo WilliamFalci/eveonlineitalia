@@ -12,7 +12,7 @@
                 <div class="col-lg-auto text-xl-end align-self-end text-center">
                     <ul class="nav nav-tabs video-tab-wrap mb-60" id="myTab" role="tablist">
                         <li v-for="nav in navData" :key="nav.id" class="nav-item" role="presentation">
-                            <button class="nav-link" :class="{ active: activeTab === nav.id }"
+                            <button name="video-button" class="nav-link" :class="{ active: activeTab === nav.id }"
                                 @click="setActiveTab(nav.id)" type="button" role="tab" :aria-controls="nav.id"
                                 :aria-selected="activeTab === nav.id">
                                 {{ nav.title }}

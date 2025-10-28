@@ -1,7 +1,7 @@
 import { eveMember } from '~/types/eve';
 import { serverSupabase } from '../utils/supabase'
 
-export default defineEventHandler(async (event) => {
+export default cachedEventHandler(async (event) => {
   const query = getQuery(event)
 
   const take = Number(query.take) ?? 9
@@ -65,4 +65,7 @@ export default defineEventHandler(async (event) => {
     nextPage: (Number(page) < totPages) ? Number(page) + 1 : null,
     totPages: Number(totPages)
   }
+},{
+  maxAge: 60 * 60 * 24, // 1 giorno = 86400 secondi
+  name: 'community-ceos-api',
 });

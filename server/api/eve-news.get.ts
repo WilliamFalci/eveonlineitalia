@@ -1,7 +1,7 @@
 import { IBlog } from "~/types/blog-type";
 import { serverSupabase } from '../utils/supabase'
 
-export default defineEventHandler(async (event) => {
+export default cachedEventHandler(async (event) => {
   const query = getQuery(event)
 
   const take = Number(query.take) ?? 3
@@ -55,4 +55,7 @@ export default defineEventHandler(async (event) => {
     totPages: Number(totPages)
   }  
   return result
-});
+}, {
+  name: 'eve-news',
+  maxAge: 60 * 60 * 12, // 12 ore
+})

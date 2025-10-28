@@ -5,11 +5,11 @@
         <div class="shop__widget-inner">
             <div class="shop__search">
                 <input type="text" :placeholder="tPlaceholder" v-model="query" @keyup.enter="changeQ"/>
-                <button class="p-0 border-0"><i class="flaticon-search" @click="changeQ"></i></button>
+                <button class="p-0 border-0" name="search"><i class="flaticon-search" @click="changeQ"></i></button>
             </div>
             <hr v-if="query" style="border: 1px solid var(--tg-theme-primary)"/>
             <div>
-              <button class="btn btn-primary d-flex justify-content-center m-auto" @click="removeFilter" v-if="query">Rimuovi Filtro</button>
+              <button name="remove-filter" class="btn btn-primary d-flex justify-content-center m-auto" @click="removeFilter" v-if="query">Rimuovi Filtro</button>
             </div>
         </div>
     </div>

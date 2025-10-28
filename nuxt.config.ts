@@ -1,5 +1,3 @@
-import { IBlogTranslated } from './types/blog-type'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -18,6 +16,13 @@ export default defineNuxtConfig({
       ],
     }
   },
+  nitro: {
+    storage: {
+      cache: {
+        driver: 'memory'
+      }
+    }
+  },
   site: {
     url: 'https://eveonlineitalia.it',
     name: 'EVE Online Italia - Community italiana di EVE Online'
@@ -32,7 +37,13 @@ export default defineNuxtConfig({
   },
   modules: ['nuxt-scheduler', '@nuxtjs/sitemap', '@nuxt/image', '@nuxtjs/robots'],
   image: {
-    format: ['webp']
+    format: ['webp'],
+    provider: 'ipx',
+    ipx: {
+      dir: 'public',
+      cacheDir: '.nuxt/ipx-cache', // cache su disco
+      maxAge: 60 * 60 * 24 * 30, // 30 giorni
+    },
   },
   sitemap: {
     sources: ['/api/__sitemap__/urls'],

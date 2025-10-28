@@ -44,7 +44,6 @@
 </template>
 
 <script setup lang="ts">
-import social_data from "@/data/social-data";
 defineProps<{isOffCanvasOpen:boolean}>();
 const emit = defineEmits();
 

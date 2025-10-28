@@ -13,7 +13,7 @@
         <div class="tgmobile__search">
           <form action="#">
             <input type="text" placeholder="Search here..." />
-            <button>
+            <button name="search">
               <i class="flaticon-loupe"></i>
             </button>
           </form>

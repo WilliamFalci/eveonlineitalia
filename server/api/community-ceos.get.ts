@@ -1,6 +1,6 @@
 import { serverSupabase } from '../utils/supabase'
 
-export default defineEventHandler(async (event) => {
+export default cachedEventHandler(async (event) => {
   let { data: eveonline_ceos, error } = await serverSupabase
     .from('eveonline_users')
     .select(`
@@ -31,4 +31,7 @@ export default defineEventHandler(async (event) => {
   }
 
   return result
+}, {
+  maxAge: 60 * 60 * 24, // 1 giorno = 86400 secondi
+  name: 'community-ceos-api',
 });

@@ -41,37 +41,6 @@ const social_data:{
         icon:'flaticon-discord',
         title:'discord'
     },
-    /* {
-        id:1,
-        link:'https://www.facebook.com/',
-        icon:'flaticon-facebook',
-        title:'facebook'
-    },
-    {
-        id:2,
-        link:'https://twitter.com/',
-        icon:'flaticon-twitter',
-        title:'twitter'
-    },
-    {
-        id:3,
-        link:'https://www.instagram.com/',
-        icon:'flaticon-instagram',
-        title:'instagram'
-    },
-    {
-        id:4,
-        link:'https://www.youtube.com/',
-        icon:'flaticon-youtube',
-        title:'youtube'
-    },
-    
-    {
-        id:6,
-        link:'https://www.twitch.tv/',
-        icon:'flaticon-twitch',
-        title:'twitch'
-    }, */
 ]
 
 </script>
