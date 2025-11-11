@@ -363,14 +363,7 @@ const analyze = async () => {
 
         getEsiDataDSscan(uniqueTypes).then(async (data) => {
             dscanOjectTypes.value = Array.from(new Set(data.map((item: any) => item.objectType)));
-            await fetch('/api/update-scanner-data', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: UID.value.id,
-                    type: 'DSCAN_TYPES',
-                    data: dscanOjectTypes.value
-                })
-            })
+            
             const mapped = objects.map((obj) => {
                 const tmp = data.find((x) => obj.type === x.name)
 
@@ -410,6 +403,17 @@ const analyze = async () => {
             path: route.path,
             query: { ...route.query, scanId: createUid.id }
         })
+
+        if (dscanOjectTypes.value && dscanOjectTypes.value.length > 0) {
+            await fetch('/api/update-scanner-data', {
+                method: 'POST',
+                body: JSON.stringify({
+                    id: UID.value.id,
+                    type: 'DSCAN_TYPES',
+                    data: dscanOjectTypes.value
+                })
+            })
+        }
 
         if (dscanResult.value && dscanResult.value.length > 0) {
             await fetch('/api/update-scanner-data', {
