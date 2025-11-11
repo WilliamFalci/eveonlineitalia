@@ -2,20 +2,23 @@
     <div class="start-div">
         <div class="container mt-5 mb-5">
             <div class="row justify-contetn-center" v-if="system">
-                <p><a :href="`https://evemaps.dotlan.net/map/${system.region.name}/${system.name}`" target="_blank" class="h1 color-primary">{{ system.name }}</a><span class="h3">({{ Math.trunc(system.security_status * 10)
-                    / 10 }})</span>  <a :href="`https://evemaps.dotlan.net/map/${system.region.name}`"target="_blank"class="h5 color-primary">{{ system.region.name }}</a></p>
+                <p><a :href="`https://evemaps.dotlan.net/map/${system.region.name}/${system.name}`" target="_blank"
+                        class="h1 color-primary">{{ system.name }}</a><span class="h3">({{
+                            Math.trunc(system.security_status * 10)
+                            / 10 }})</span> <a :href="`https://evemaps.dotlan.net/map/${system.region.name}`"
+                        target="_blank" class="h5 color-primary">{{ system.region.name }}</a></p>
             </div>
 
             <hr class="mt-3 mb-3" v-if="system" />
 
             <div class="row" v-if="dscanOverview">
                 <div class="wrap-entities">
-                    <div class="entity-container"
-                        v-for="(value, key) in dscanOverview">
+                    <div class="entity-container" v-for="(value, key) in dscanOverview">
                         <div class="wrap-entity-img">
                             <img class="entity-img"
                                 :src="`/images/brackets/${eveShipClasses[key.toString().toLowerCase().replaceAll(' ', '')]}_32.png`" />
-                            <img v-if="value.techLevel !== 'Unknown'" :src="`/images/pips/${value.techLevel}.png`" class="pip" />
+                            <img v-if="value.techLevel !== 'Unknown'" :src="`/images/pips/${value.techLevel}.png`"
+                                class="pip" />
                         </div>
                         <hr />
                         <div class="p-1">
@@ -57,9 +60,12 @@
                     </div>
 
                     <div class="row m-0 mb-3 wrap-tabs">
-                        <span class="wrap-button col" :class="{'active': dscanTab == 'ALL'}" @click="dscanTab = 'ALL'">ALL</span>
-                        <span class="wrap-button col" :class="{'active': dscanTab == 'OFF-GRID'}" @click="dscanTab = 'OFF-GRID'">OFF-GRID</span>
-                        <span class="wrap-button col" :class="{'active': dscanTab == 'IN-GRID'}" @click="dscanTab = 'IN-GRID'">IN-GRID</span>
+                        <span class="wrap-button col" :class="{ 'active': dscanTab == 'ALL' }"
+                            @click="dscanTab = 'ALL'">ALL</span>
+                        <span class="wrap-button col" :class="{ 'active': dscanTab == 'OFF-GRID' }"
+                            @click="dscanTab = 'OFF-GRID'">OFF-GRID</span>
+                        <span class="wrap-button col" :class="{ 'active': dscanTab == 'IN-GRID' }"
+                            @click="dscanTab = 'IN-GRID'">IN-GRID</span>
                     </div>
                     <hr class="mb-4" />
                     <!-- ENTITIES -->
@@ -71,12 +77,13 @@
                         </div>
 
                         <div class="wrap-entities">
-                            
+
                             <div :class="{ 'entity-container-row': listRow.dscan, 'entity-container': !listRow.dscan }"
                                 v-for="entity of getDscanData.filter((x: any) => x.objectType === type)">
                                 <div class="wrap-entity-img" :style="`background-image: url('${entity.icon}')`">
                                     <img class="entity-img" :src="entity.icon" />
-                                    <img v-if="entity.techLevel !== 'Unknown'" :src="`/images/pips/${entity.techLevel}.png`" class="pip" />
+                                    <img v-if="entity.techLevel !== 'Unknown'"
+                                        :src="`/images/pips/${entity.techLevel}.png`" class="pip" />
                                     <span class="entity-counter">{{ entity.count }}</span>
                                 </div>
                                 <hr />
@@ -279,13 +286,13 @@ const toggleSelectedCorporation = (corporationName: string, allianceName: string
     }
 }
 
-const toggleShowAlly = () => { 
-    showAlly.value = showAlly.value ? false : true 
+const toggleShowAlly = () => {
+    showAlly.value = showAlly.value ? false : true
     if (showAlly.value == false) showSearchAlly.value = false
 }
 
-const toggleShowCorps = () => { 
-    showCorps.value = showCorps.value ? false : true 
+const toggleShowCorps = () => {
+    showCorps.value = showCorps.value ? false : true
     if (showCorps.value == false) showSearchCorp.value = false
 }
 
@@ -327,9 +334,9 @@ const getMembers = computed(() => getCorporations.value.flatMap((x: any) =>
 )
 
 const getDscanData = computed(() => {
-    if ( dscanTab.value == 'ALL' && dscanResult.value && dscanResult.value.length > 0 ) return dscanResult.value
-    if ( dscanTab.value == 'OFF-GRID' && dscanResult.value && dscanResult.value.length > 0 ) return dscanResult.value.filter((x:any) => x.distance == null || x.distance == '')
-    if ( dscanTab.value == 'IN-GRID' && dscanResult.value && dscanResult.value.length > 0 ) return dscanResult.value.filter((x:any) => x.distance !== null && x.distance !== '')
+    if (dscanTab.value == 'ALL' && dscanResult.value && dscanResult.value.length > 0) return dscanResult.value
+    if (dscanTab.value == 'OFF-GRID' && dscanResult.value && dscanResult.value.length > 0) return dscanResult.value.filter((x: any) => x.distance == null || x.distance == '')
+    if (dscanTab.value == 'IN-GRID' && dscanResult.value && dscanResult.value.length > 0) return dscanResult.value.filter((x: any) => x.distance !== null && x.distance !== '')
     return []
 })
 
@@ -338,109 +345,109 @@ const UID = ref()
 const dscanTab = ref('ALL')
 
 const analyze = async () => {
-    if (dscan.value || lscan.value) {
+    const { objects, uniqueTypes, sun } = await parseTextToObjectsAndTypes(dscan.value)
+    const names = lscan.value
+        .trim()              // rimuove spazi o newline iniziali/finali
+        .split("\n")         // divide per newline
+        .map((s: string) => s.trim())  // rimuove spazi da ogni elemento
+        .filter(Boolean);    // rimuove eventuali righe vuote
+
+    if ((objects.length > 0 && uniqueTypes.length > 0) || names.length > 0) {
         const createUid = await (await fetch(`/api/create-scanner-id`)).json()
         UID.value = createUid
         router.push({
             path: route.path,
             query: { ...route.query, scanId: createUid.id }
         })
-    }
 
-    if (dscan.value && dscanResult.value.length == 0) {
-        dscanAnalyzing.value = true
-        const { objects, uniqueTypes, sun } = await parseTextToObjectsAndTypes(dscan.value)
-
-        if (sun) {
-            system.value = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
-            await fetch('/api/update-scanner-data', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: UID.value.id,
-                    type: 'SYSTEM',
-                    data: system.value
+        if (dscan.value && dscanResult.value.length == 0) {
+            dscanAnalyzing.value = true
+            if (sun) {
+                system.value = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
+                await fetch('/api/update-scanner-data', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        id: UID.value.id,
+                        type: 'SYSTEM',
+                        data: system.value
+                    })
                 })
+            }
+
+            getEsiDataDSscan(uniqueTypes).then(async (data) => {
+                dscanOjectTypes.value = Array.from(new Set(data.map((item: any) => item.objectType)));
+                await fetch('/api/update-scanner-data', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        id: UID.value.id,
+                        type: 'DSCAN_TYPES',
+                        data: dscanOjectTypes.value
+                    })
+                })
+                const mapped = objects.map((obj) => {
+                    const tmp = data.find((x) => obj.type === x.name)
+
+                    return {
+                        ...obj,
+                        icon: `https://images.evetech.net/types/${obj.iconId}/icon?size=64`,
+                        objectType: tmp?.objectType ?? null,
+                        className: tmp?.className ?? null,
+                        techLevel: tmp?.techLevel ?? null
+                    }
+                })
+
+                await fetch('/api/update-scanner-data', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        id: UID.value.id,
+                        type: 'DSCAN',
+                        data: mapped
+                    })
+                })
+                dscanResult.value = mapped
+                dscanOverview.value = countByClassName(mapped)
+                dscanAnalyzing.value = false
             })
         }
 
-        getEsiDataDSscan(uniqueTypes).then(async (data) => {
-            dscanOjectTypes.value = Array.from(new Set(data.map((item: any) => item.objectType)));
-            await fetch('/api/update-scanner-data', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: UID.value.id,
-                    type: 'DSCAN_TYPES',
-                    data: dscanOjectTypes.value
+        if (lscan.value && lscanResult.value.length == 0) {
+            lscanAnalyzing.value = true
+
+            getEsiDataLocal(names).then(async (data) => {
+                await fetch('/api/update-scanner-data', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        id: UID.value.id,
+                        type: 'LSCAN',
+                        data: data
+                    })
                 })
+                lscanResult.value = data
+                lscanAnalyzing.value = false
             })
-            const mapped = objects.map((obj) => {
-                const tmp = data.find((x) => obj.type === x.name)
-
-                return {
-                    ...obj,
-                    icon: `https://images.evetech.net/types/${obj.iconId}/icon?size=64`,
-                    objectType: tmp?.objectType ?? null,
-                    className: tmp?.className ?? null,
-                    techLevel: tmp?.techLevel ?? null
-                }
-            })
-
-            await fetch('/api/update-scanner-data', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: UID.value.id,
-                    type: 'DSCAN',
-                    data: mapped
-                })
-            })
-            dscanResult.value = mapped
-            dscanOverview.value = countByClassName(mapped)
-            dscanAnalyzing.value = false
-        })
-    }
-
-    if (lscan.value && lscanResult.value.length == 0) {
-        lscanAnalyzing.value = true
-        const names = lscan.value
-            .trim()              // rimuove spazi o newline iniziali/finali
-            .split("\n")         // divide per newline
-            .map((s: string) => s.trim())  // rimuove spazi da ogni elemento
-            .filter(Boolean);    // rimuove eventuali righe vuote
-
-        getEsiDataLocal(names).then(async (data) => {
-            await fetch('/api/update-scanner-data', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: UID.value.id,
-                    type: 'LSCAN',
-                    data: data
-                })
-            })
-            lscanResult.value = data
-            lscanAnalyzing.value = false
-        })
+        }
     }
 }
 
 
-if ( route.query.scanId) {
-    const {data: scannerData} = await useFetch('/api/get-scanner-data', {
+if (route.query.scanId) {
+    const { data: scannerData } = await useFetch('/api/get-scanner-data', {
         method: 'POST',
         body: {
             id: route.query.scanId,
         }
     })
 
-    if (scannerData.value){
+    if (scannerData.value) {
         UID.value = {
             id: scannerData.value.id,
             created_at: scannerData.value.created_at
         }
-        
+
         if (scannerData.value.system) {
             system.value = scannerData.value.system
         }
-    
+
         if (scannerData.value.dscan) {
             dscanOjectTypes.value = scannerData.value.dscan_object_types
             dscanResult.value = scannerData.value.dscan
@@ -499,7 +506,7 @@ hr {
     border-bottom: 1px solid black;
 }
 
-.wrap-section > p {
+.wrap-section>p {
     margin-bottom: 0;
     color: black;
 }
@@ -533,7 +540,9 @@ hr {
 .flaticon-settings {
     color: black;
 }
-.flaticon-loupe, .flaticon-settings {
+
+.flaticon-loupe,
+.flaticon-settings {
     position: absolute;
     right: 15px;
 }
@@ -598,7 +607,7 @@ hr {
     margin-bottom: 0;
 }
 
-.entity-name-overview{
+.entity-name-overview {
     width: 135px;
     padding: 0 10px;
     font-size: 12px;
