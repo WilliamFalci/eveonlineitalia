@@ -8,7 +8,7 @@
                 </nuxt-link>
                 <ul v-if="menu.sub_menu" class="sub-menu">
                     <li v-for="(sub, i) in menu.sub_menu" :key="i" :class="{ active: route.path === sub.link }">
-                        <nuxt-link :to="sub.link">{{ sub.title }}</nuxt-link>
+                        <a :href="sub.link">{{ sub.title }}</a>
                     </li>
                 </ul>
             </li>
