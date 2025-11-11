@@ -19,7 +19,7 @@
                         </div>
                         <hr />
                         <div class="p-1">
-                            <p class="entity-name text-center">{{ key }}</p>
+                            <p class="entity-name-overview text-center">{{ key }}</p>
                         </div>
                         <div class="p-1">
                             <p class="text-center">{{ value.count }}</p>
@@ -279,9 +279,15 @@ const toggleSelectedCorporation = (corporationName: string, allianceName: string
     }
 }
 
-const toggleShowAlly = () => { showAlly.value = showAlly.value ? false : true }
+const toggleShowAlly = () => { 
+    showAlly.value = showAlly.value ? false : true 
+    if (showAlly.value == false) showSearchAlly.value = false
+}
 
-const toggleShowCorps = () => { showCorps.value = showCorps.value ? false : true }
+const toggleShowCorps = () => { 
+    showCorps.value = showCorps.value ? false : true 
+    if (showCorps.value == false) showSearchCorp.value = false
+}
 
 const toggleShowMembers = () => { showMembers.value = showMembers.value ? false : true }
 
@@ -590,6 +596,16 @@ hr {
     line-height: normal;
     height: auto;
     margin-bottom: 0;
+}
+
+.entity-name-overview{
+    width: 135px;
+    padding: 0 10px;
+    font-size: 12px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
