@@ -46,7 +46,6 @@ list.value = (initNews as any)?.elements as IBlogTranslated[]
 totPages.value = (initNews as any)?.totPages
 
 const handleUpdateQ = async (newValue: string|null) => {
-  console.log('##q: ', newValue)
     page.value = 1
     take.value = 3
     q.value = newValue

@@ -48,3 +48,48 @@ export function ottimizzaTestoConKeywords(testo: string): string {
 
   return risultato;
 }
+
+
+export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
+export function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  retries = 5,
+  delayMs = 1000
+): Promise<Response> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, options);
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      }
+
+      return res; // ✅ Successo, ritorna la risposta
+    } catch (err) {
+      console.error(`Tentativo ${attempt} fallito:`, err);
+
+      if (attempt === retries) {
+        throw new Error(`Fetch fallito dopo ${retries} tentativi`);
+      }
+
+      // ⏱️ Backoff esponenziale (aumenta il tempo tra i retry)
+      const wait = delayMs * Math.pow(2, attempt - 1);
+      console.log(`Riprovo tra ${wait}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, wait));
+    }
+  }
+
+  throw new Error("FetchWithRetry: qualcosa è andato storto (non dovrebbe mai arrivare qui)");
+}

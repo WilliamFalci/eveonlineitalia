@@ -19,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+import { useCookieConsent } from '../composables/useCookieConsent';
+
 const { consent, accept, reject } = useCookieConsent()
 </script>
 

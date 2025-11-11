@@ -29,6 +29,15 @@ const menu_data: IMenuDataType[] = [
     id: 4,
     title: "Blog",
     link: "/blog"
+  },
+  {
+    id: 5,
+    title: "Tools",
+    link: "#",
+    sub_menu: [
+      { title: "SCANNER", link: "/scanner" },
+      { title: "PLAYER INTEL (coming soon)", link: "#" },
+    ],
   }
 /*   {
     id: 2,

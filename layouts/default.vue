@@ -20,18 +20,32 @@
 </template>
 
 <script setup lang="ts">
+import { useRuntimeConfig } from 'nuxt/app';
 import { useCookieConsent } from '../composables/useCookieConsent';
+import { onMounted } from 'vue';
 
 const { consent } = useCookieConsent()
+
+onMounted(() => {
+  const saved = localStorage.getItem('cookie-consent')
+  if (saved === 'accepted' || saved === 'rejected') {
+    consent.value = saved
+  }
+})
+
+
 const gtmId = useRuntimeConfig().public.gtmId
 </script>
 
 <style>
-.seo-text > h1 , .seo-text > h2, .seo-text > article > h2 {
+.seo-text>h1,
+.seo-text>h2,
+.seo-text>article>h2 {
   font-size: 1rem;
 }
 
-.seo-text > p , .seo-text > ul > li {
+.seo-text>p,
+.seo-text>ul>li {
   font-size: 0.9rem;
 }
 

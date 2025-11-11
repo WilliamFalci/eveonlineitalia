@@ -1,8 +1,8 @@
 import { serverSupabase } from '../utils/supabase'
 
 export default cachedEventHandler(async (event) => {
-    const query = getQuery(event)
-    const eve_online_id = query.eve_online_id 
+  const query = getQuery(event)
+  const eve_online_id = query.eve_online_id
 
   let { data: result, error } = await serverSupabase
     .from('eveonline_users')

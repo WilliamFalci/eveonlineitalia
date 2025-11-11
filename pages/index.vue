@@ -15,10 +15,16 @@
     <!-- blog area start -->
     <blog-area id="news"/>
     <!-- blog area end -->
-     
+
+    <!-- video-area-warlock -->
+    <video-area-warlock></video-area-warlock>
+    <!-- video-area-warlock -->
+
+    
     <!-- nft item area start -->
     <nft-item-area></nft-item-area>
     <!-- nft item area end -->
+
 
     <!-- project area start -->
     <project-area></project-area>

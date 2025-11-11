@@ -35,7 +35,6 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-5 order-0 order-md-2">
-                            <iframe title="discord-frame" class="m-auto d-flex" style="margin-bottom: 100px!important" src="https://discord.com/widget?id=1414250498038698207&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                             <div class="footer-el-widget text-start text-md-center widget_nav_menu">
                                 <div class="footer-el-logo mb-35">
                                     <nuxt-link to="/">

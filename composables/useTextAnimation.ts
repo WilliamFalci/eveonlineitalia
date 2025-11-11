@@ -1,3 +1,4 @@
+import { onUnmounted } from "vue";
 
 
 export function useTextAnimation () {
