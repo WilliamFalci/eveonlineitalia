@@ -378,15 +378,17 @@ const analyze = async () => {
         if ((objects.length > 0 && uniqueTypes.length > 0) || sun) {
             dscanAnalyzing.value = true
             if (sun) {
-                system.value = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
-                await fetch('/api/update-scanner-data', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        id: UID.value.id,
-                        type: 'SYSTEM',
-                        data: system.value
+                const systemData = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
+                if (!systemData.error) {
+                    system.value = await fetch('/api/update-scanner-data', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            id: UID.value.id,
+                            type: 'SYSTEM',
+                            data: system.value
+                        })
                     })
-                })
+                }
             }
 
             getEsiDataDSscan(uniqueTypes).then(async (data) => {
