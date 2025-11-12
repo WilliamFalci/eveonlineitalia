@@ -345,14 +345,24 @@ const UID = ref()
 const dscanTab = ref('ALL')
 
 const analyze = async () => {
-    const { objects, uniqueTypes, sun } = await parseTextToObjectsAndTypes(dscan.value)
+    let objects: any[] = []
+    let uniqueTypes:any[] = []
+    let sun
+    
+    if (dscan.value)  {
+        const { objects: _obj, uniqueTypes: _uniqueT, sun: _s } = await parseTextToObjectsAndTypes(dscan.value)
+        objects = _obj
+        uniqueTypes = _uniqueT
+        sun = _s
+    }
+
     const names = lscan.value
         .trim()              // rimuove spazi o newline iniziali/finali
         .split("\n")         // divide per newline
         .map((s: string) => s.trim())  // rimuove spazi da ogni elemento
         .filter(Boolean);    // rimuove eventuali righe vuote
 
-    if ((objects.length > 0 && uniqueTypes.length > 0) || names.length > 0) {
+    if ((objects.length > 0 && uniqueTypes.length > 0) || sun) {
         const createUid = await (await fetch(`/api/create-scanner-id`)).json()
         UID.value = createUid
         router.push({
