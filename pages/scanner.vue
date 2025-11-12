@@ -379,8 +379,10 @@ const analyze = async () => {
             dscanAnalyzing.value = true
             if (sun) {
                 const systemData = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
-                if (!systemData.error) {
-                    system.value = await fetch('/api/update-scanner-data', {
+
+                if (systemData && typeof systemData.error === 'undefined') {
+                    system.value = systemData
+                    await fetch('/api/update-scanner-data', {
                         method: 'POST',
                         body: JSON.stringify({
                             id: UID.value.id,
