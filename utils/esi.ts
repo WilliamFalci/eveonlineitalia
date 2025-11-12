@@ -1,4 +1,4 @@
-import { getFullOverview } from "../utils/scanner";
+import { getFullOverview, shipClassSortOrder } from "../utils/scanner";
 import { chunkArray, fetchWithRetry, sleep } from "../utils/utils";
 
 type EveItem = {
@@ -11,21 +11,21 @@ type EveItem = {
 }
 
 function getCurrentDateUTCMinus11(): string {
-  const now = new Date();
-  
-  // Offset UTC-11 in minuti
-  const offsetMinutes = -11 * 60;
-  
-  // Calcola l'orario in UTC-11
-  const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
-  const dateInUTCMinus11 = new Date(utcTime + offsetMinutes * 60000);
+    const now = new Date();
 
-  // Formatta in YYYY-MM-DD
-  const year = dateInUTCMinus11.getFullYear();
-  const month = String(dateInUTCMinus11.getMonth() + 1).padStart(2, '0');
-  const day = String(dateInUTCMinus11.getDate()).padStart(2, '0');
+    // Offset UTC-11 in minuti
+    const offsetMinutes = -11 * 60;
 
-  return `${year}-${month}-${day}`;
+    // Calcola l'orario in UTC-11
+    const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+    const dateInUTCMinus11 = new Date(utcTime + offsetMinutes * 60000);
+
+    // Formatta in YYYY-MM-DD
+    const year = dateInUTCMinus11.getFullYear();
+    const month = String(dateInUTCMinus11.getMonth() + 1).padStart(2, '0');
+    const day = String(dateInUTCMinus11.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
 }
 
 export async function getEsiDataLocal(names: string[]) {
@@ -34,14 +34,14 @@ export async function getEsiDataLocal(names: string[]) {
         if (names.length === 0) {
             throw new Error("Missing 'names' array");
         }
-    
+
         const chunks = chunkArray(names, 499);
         let fullChars: any[] = []
-    
+
         for (const [index, chunk] of chunks.entries()) {
             // Step 1: risolvi i nomi → character IDs
 
-            const idsData = await fetchWithRetry("https://esi.evetech.net/latest/universe/ids/",{
+            const idsData = await fetchWithRetry("https://esi.evetech.net/latest/universe/ids/", {
                 method: "POST",
                 body: JSON.stringify(chunk),
                 headers: {
@@ -50,27 +50,27 @@ export async function getEsiDataLocal(names: string[]) {
                     "Content-Type": "application/json"
                 }
             })
-            
+
             const characters = (await idsData.json()).characters || [];
-    
+
             // Step 2: per ogni character, prendi corp + alliance
             const results = await Promise.allSettled(
                 characters.map(async (char: any) => {
                     const charInfo = await (await fetch(
                         `https://esi.evetech.net/latest/characters/${char.id}/`
                     )).json();
-    
+
                     const corpInfo = await (await fetch(
                         `https://esi.evetech.net/latest/corporations/${charInfo.corporation_id}/`
                     )).json();
-    
+
                     let allianceInfo: any = null;
                     if (charInfo.alliance_id) {
                         allianceInfo = await (await fetch(
                             `https://esi.evetech.net/latest/alliances/${charInfo.alliance_id}/`
                         )).json();
                     }
-    
+
                     // Costruisci le URL immagini
                     const imageBase = "https://images.evetech.net";
                     const portraitUrl = `${imageBase}/characters/${char.id}/portrait?size=64`;
@@ -78,7 +78,7 @@ export async function getEsiDataLocal(names: string[]) {
                     const allianceLogoUrl = charInfo.alliance_id
                         ? `${imageBase}/alliances/${charInfo.alliance_id}/logo?size=64`
                         : null;
-    
+
                     return {
                         name: char.name,
                         portraitUrl,
@@ -91,16 +91,16 @@ export async function getEsiDataLocal(names: string[]) {
                     };
                 })
             );
-    
+
             const resultChars = results
                 .filter((r) => r.status === "fulfilled")
                 .map((r: any) => r.value);
-    
+
             fullChars = [...fullChars, ...resultChars];
-    
+
             await sleep(1000);
         }
-    
+
         const overview = getFullOverview(fullChars)
         return overview;
     } catch (e) {
@@ -184,7 +184,7 @@ export async function getEsiDataDSscan(uniqueTypes: string[]) {
                 })
             );
 
-            fullResult = [...fullResult, ...results];
+            fullResult = [...fullResult, ...results]
             await sleep(1000);
         }
 

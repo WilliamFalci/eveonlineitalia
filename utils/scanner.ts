@@ -29,6 +29,47 @@ type AllianceOverview = {
   corporations: CorporationOverview[];
 };
 
+export const shipClassSortOrder:string[]= [
+  "titan",
+  "supercarrier",
+  "forceauxiliary",
+  "dreadnought",
+  "carrier",
+  "industrial",
+  "industrialcommandship",
+  "freighter",
+  "jumpfreighter",
+  "capital",
+  "blackops",
+  "marauder",
+  "battleship",
+  "commandship",
+  "combatbattlecruiser",
+  "battlecruiser",
+  "hauler",
+  "strategiccruiser",
+  "flagcruiser",
+  "heavyinterdictioncruiser",
+  "logisticscruiser",
+  "heavyassaultcruiser",
+  "reconcruiser",
+  "forcereconship",
+  "logistics",
+  "cruiser",
+  "tacticaldestroyer",
+  "interdictor",
+  "commanddestroyer",
+  "destroyer",
+  "assaultfrigate",
+  "interceptor",
+  "covertops",
+  "electronicattackfrigate",
+  "explorationfrigate",
+  "logisticsfrigate",
+  "frigate",
+  "capsule",
+]
+
 export const eveShipClasses: Record<string, string> = {
   // Classi principali
   "frigate": "frigate",
@@ -50,6 +91,7 @@ export const eveShipClasses: Record<string, string> = {
   // Sottoclassi di Destroyer
   "interdictor": "destroyer",
   "commanddestroyer": "destroyer",
+  "tacticaldestroyer": "destroyer",
 
   // Sottoclassi di Cruiser
   "heavyassaultcruiser": "cruiser",
@@ -58,9 +100,14 @@ export const eveShipClasses: Record<string, string> = {
   "heavyinterdictioncruiser": "cruiser",
   "strategiccruiser": "cruiser",
   "forcereconship": "cruiser",
+  "logistics": "cruiser",
+  "flagcruiser": "cruiser",
+
+  "hauler": "industrial",
 
   // Sottoclassi di Battlecruiser
   "commandship": "battlecruiser",
+  "combatbattlecruiser": "battlecruiser",
 
   // Sottoclassi di Battleship
   "blackops": "battleship",
@@ -68,7 +115,7 @@ export const eveShipClasses: Record<string, string> = {
 
   // Navi industriali e capitali
   "industrial": "capital",
-  "industrialcommandship": "capital",
+  "industrialcommandship": "industrialcommand",
   "freighter": "capital",
   "jumpfreighter": "capital",
   "carrier": "capital",
@@ -78,6 +125,9 @@ export const eveShipClasses: Record<string, string> = {
   // Supercapital
   "supercarrier": "supercapital",
   "titan": "supercapital",
+
+  //capsule
+  "capsule": "capsule"
 };
 
 export function getFullOverview(pilots: Pilot[]): AllianceOverview[] {
@@ -199,8 +249,9 @@ export function parseTextToObjectsAndTypes(text: string): {
     }
   }
 
-  const objects = Array.from(typeMap.values());
-  const uniqueTypes = objects.map(o => o.type);
+  const objects = Array.from(typeMap.values())
+
+  const uniqueTypes = objects.map(o => o.type)
 
   return { objects, uniqueTypes, sun };
 }

@@ -70,7 +70,8 @@
                     <hr class="mb-4" />
                     <!-- ENTITIES -->
                     <div class="mb-4" v-for="type of dscanOjectTypes" v-if="getDscanData && getDscanData.length > 0">
-                        <div class="wrap-button">
+                        <div class="wrap-button"
+                            v-if="getDscanData.filter((x: any) => x.objectType === type).length > 0">
                             <p>{{ type.toUpperCase() }}: <span>{{getDscanData.filter((x: any) => x.objectType ===
                                 type).length}}</span>
                             </p>
@@ -79,7 +80,8 @@
                         <div class="wrap-entities">
 
                             <div :class="{ 'entity-container-row': listRow.dscan, 'entity-container': !listRow.dscan }"
-                                v-for="entity of getDscanData.filter((x: any) => x.objectType === type)">
+                                v-for="entity of getDscanData.filter((x: any) => x.objectType === type)"
+                                v-if="getDscanData.filter((x: any) => x.objectType === type).length > 0">
                                 <div class="wrap-entity-img" :style="`background-image: url('${entity.icon}')`">
                                     <img class="entity-img" :src="entity.icon" />
                                     <img v-if="entity.techLevel !== 'Unknown'"
@@ -219,7 +221,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { countByClassName, getFullOverview, parseTextToObjectsAndTypes, eveShipClasses } from '../utils/scanner'
+import { countByClassName, getFullOverview, parseTextToObjectsAndTypes, eveShipClasses, shipClassSortOrder } from '../utils/scanner'
 import { getEsiDataDSscan, getEsiDataLocal } from '../utils/esi'
 import { useFetch, useRoute, useRouter } from 'nuxt/app';
 
@@ -346,18 +348,18 @@ const dscanTab = ref('ALL')
 
 const analyze = async () => {
     let objects: any[] = []
-    let uniqueTypes:any[] = []
-    let names:any[] = []
+    let uniqueTypes: any[] = []
+    let names: any[] = []
     let sun
-    
-    if (dscan.value)  {
+
+    if (dscan.value) {
         const { objects: _obj, uniqueTypes: _uniqueT, sun: _s } = await parseTextToObjectsAndTypes(dscan.value)
         objects = _obj
         uniqueTypes = _uniqueT
         sun = _s
     }
 
-    if (lscan.value){
+    if (lscan.value) {
         names = lscan.value
             .trim()              // rimuove spazi o newline iniziali/finali
             .split("\n")         // divide per newline
@@ -366,7 +368,7 @@ const analyze = async () => {
     }
 
     if (((objects.length > 0 && uniqueTypes.length > 0) || sun) || names.length > 0) {
-        if (!UID.value){
+        if (!UID.value) {
             const createUid = await (await fetch(`/api/create-scanner-id`)).json()
             UID.value = createUid
             router.push({
@@ -377,7 +379,7 @@ const analyze = async () => {
 
         if ((objects.length > 0 && uniqueTypes.length > 0) || sun) {
             dscanAnalyzing.value = true
-            if (sun) {
+            if (sun && sun !== '') {
                 const systemData = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
 
                 if (systemData && typeof systemData.error === 'undefined') {
@@ -413,7 +415,21 @@ const analyze = async () => {
                         className: tmp?.className ?? null,
                         techLevel: tmp?.techLevel ?? null
                     }
-                })
+                }).sort((a, b) => {
+                    const posA = shipClassSortOrder.indexOf(a.className.toString().toLowerCase().replaceAll(' ', '')) ?? Infinity; // elementi non trovati vanno in fondo
+                    const posB = shipClassSortOrder.indexOf(b.className.toString().toLowerCase().replaceAll(' ', '')) ?? Infinity;
+                    return posA - posB;
+                });
+
+                const shipClassSortOrderMapped = new Map(shipClassSortOrder.map((key, index) => [key, index]));
+
+                const dscanOverviewSorted = Object.fromEntries(
+                    Object.entries(countByClassName(mapped)).sort(([keyA], [keyB]) => {
+                        const posA = shipClassSortOrderMapped.get(keyA.toString().toLowerCase().replaceAll(' ', '')) ?? Infinity;
+                        const posB = shipClassSortOrderMapped.get(keyB.toString().toLowerCase().replaceAll(' ', '')) ?? Infinity;
+                        return posA - posB;
+                    })
+                );
 
                 await fetch('/api/update-scanner-data', {
                     method: 'POST',
@@ -424,7 +440,7 @@ const analyze = async () => {
                     })
                 })
                 dscanResult.value = mapped
-                dscanOverview.value = countByClassName(mapped)
+                dscanOverview.value = dscanOverviewSorted
                 dscanAnalyzing.value = false
             })
         }
