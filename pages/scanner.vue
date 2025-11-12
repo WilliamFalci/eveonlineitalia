@@ -473,6 +473,8 @@ if (route.query.scanId) {
         if (scannerData.value.lscan) {
             lscanResult.value = scannerData.value.lscan
         }
+    } else {
+        router.push('/scanner')
     }
 
 }
