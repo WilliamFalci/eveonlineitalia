@@ -347,6 +347,7 @@ const dscanTab = ref('ALL')
 const analyze = async () => {
     let objects: any[] = []
     let uniqueTypes:any[] = []
+    let names:any[] = []
     let sun
     
     if (dscan.value)  {
@@ -356,21 +357,25 @@ const analyze = async () => {
         sun = _s
     }
 
-    const names = lscan.value
-        .trim()              // rimuove spazi o newline iniziali/finali
-        .split("\n")         // divide per newline
-        .map((s: string) => s.trim())  // rimuove spazi da ogni elemento
-        .filter(Boolean);    // rimuove eventuali righe vuote
+    if (lscan.value){
+        names = lscan.value
+            .trim()              // rimuove spazi o newline iniziali/finali
+            .split("\n")         // divide per newline
+            .map((s: string) => s.trim())  // rimuove spazi da ogni elemento
+            .filter(Boolean);    // rimuove eventuali righe vuote
+    }
 
-    if ((objects.length > 0 && uniqueTypes.length > 0) || sun) {
-        const createUid = await (await fetch(`/api/create-scanner-id`)).json()
-        UID.value = createUid
-        router.push({
-            path: route.path,
-            query: { ...route.query, scanId: createUid.id }
-        })
+    if (((objects.length > 0 && uniqueTypes.length > 0) || sun) || names.length > 0) {
+        if (!UID.value){
+            const createUid = await (await fetch(`/api/create-scanner-id`)).json()
+            UID.value = createUid
+            router.push({
+                path: route.path,
+                query: { ...route.query, scanId: createUid.id }
+            })
+        }
 
-        if (dscan.value && dscanResult.value.length == 0) {
+        if ((objects.length > 0 && uniqueTypes.length > 0) || sun) {
             dscanAnalyzing.value = true
             if (sun) {
                 system.value = await (await fetch(`/api/esi/solar-system?name=${sun}`)).json()
@@ -420,7 +425,7 @@ const analyze = async () => {
             })
         }
 
-        if (lscan.value && lscanResult.value.length == 0) {
+        if (names.length > 0) {
             lscanAnalyzing.value = true
 
             getEsiDataLocal(names).then(async (data) => {
